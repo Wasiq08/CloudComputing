@@ -1,0 +1,294 @@
+<div *ngIf="fieldType==='designation'">
+    <h1 mat-dialog-title>Delete Designation</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='department'">
+    <h1 mat-dialog-title>Delete Department</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='role'">
+    <h1 mat-dialog-title>Delete Role</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='region'">
+    <h1 mat-dialog-title>Delete Region</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='branch'">
+    <h1 mat-dialog-title>Delete Branch</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='permission'">
+    <h1 mat-dialog-title>Delete Permission</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="fieldType==='caseType'">
+    <h1 mat-dialog-title>Delete Case Type</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='caseNature'">
+    <h1 mat-dialog-title>Delete Case Nature</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="fieldType==='caseTerritory'">
+    <h1 mat-dialog-title>Delete Case Territory</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="fieldType==='caseClassification'">
+    <h1 mat-dialog-title>Delete Case Classification</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='caseDocument'">
+    <h1 mat-dialog-title>Delete Document</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='caseDocumentNature'">
+    <h1 mat-dialog-title>Delete Document Nature</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete <strong>{{name}}</strong> ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div *ngIf="fieldType==='type'">
+    <h1 mat-dialog-title>Delete influencer type</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='interest'">
+    <h1 mat-dialog-title>Delete interest</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='age'">
+    <h1 mat-dialog-title>Delete age group</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='plan'">
+    <h1 mat-dialog-title>Delete payment plan</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='gateway'">
+    <h1 mat-dialog-title>Delete payment gateway</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="fieldType==='currency'">
+    <h1 mat-dialog-title>Delete currency</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="fieldType==='industry'">
+    <h1 mat-dialog-title>Delete industry</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div *ngIf="fieldType==='contact'">
+    <h1 mat-dialog-title>Delete contact category</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="fieldType==='brand-feature'">
+    <h1 mat-dialog-title>Delete contact category</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete {{name}} ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="fieldType==='rating'">
+    <h1 mat-dialog-title>Delete rating</h1>
+    <div mat-dialog-content>
+        <p> Are you sure, you want to delete ?</p>
+    </div>
+    <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+            <button mat-raised-button tabindex="-1" (click)="onNoClick()">NO</button>
+            <button mat-raised-button color="primary" (click)="onYesClick(fieldType)" tabindex="2">YES</button>
+        </div>
+    </div>
+</div> -->

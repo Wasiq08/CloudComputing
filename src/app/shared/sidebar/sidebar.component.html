@@ -1,0 +1,267 @@
+<div class="col-md-3">
+  <aside class="sidebar">
+    <div class="scrollable">
+      <div class="user">
+        <div class="user-info">
+          <img class="user-img" src="assets/img/user.png" alt="profile_pic">
+          <!-- <img class="user-img" src="assets/img/user.png" alt="profile_pic"> -->
+          <!-- <img class="profile-thumb small" src="assets/img/user.png" alt="profile_pic"> -->
+          <div class="box">
+            <div class="user-name">{{user && user.firstName? user.firstName : "Unknown"}}</div>
+            <!-- <div class="user-about">{{user?.entityDescription}}</div> -->
+            <div class="user-location">
+              <mat-icon>location_on</mat-icon>Karachi</div>
+          </div>
+        </div>
+      </div>
+      <ul class="navigation">
+        <li>
+          <a href="">                                 
+            <i class="fa fa-dashboard"></i>                                
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a (click)="navigate('/user/view-profile')">
+            <i class="fa fa-user-circle"></i>
+            Profile
+          </a>
+        </li>
+        <li>
+          <a (click)="expandRow(6)">
+            <i class="fa fa-cogs"></i>
+            Role And Permission
+            <i class="right-ico fa " [ngClass]="(6 === expandedIndex)?' fa-chevron-up':'fa-chevron-down'"></i>
+          </a>
+          <ul class="sub" [ngClass]="(6 === expandedIndex)?'show':''">
+            <span *ngIf="6 === expandedIndex">
+              <!-- <li>
+                <a (click)="navigate('/admin/designation')">
+                  <i class="fa fa-cog"></i>
+                  Manage Designation
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/role')">
+                  <i class="fa fa-cog"></i>
+                  Manage Role
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/permission')">
+                  <i class="fa fa-cog"></i>
+                  Manage Permission
+                </a>
+              </li> -->
+
+              <li>
+                <a (click)="navigate('/admin/manage-role')">
+                  <i class="fa fa-cog"></i>
+                  Manage Role
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/assign-permission')">
+                  <i class=" fa fa-key"></i>
+                  Assign Permission
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+        <li>
+          <a (click)="expandRow(7)">
+            <i class="fa fa-cogs"></i>
+            Setup
+            <i class="right-ico fa " [ngClass]="(7 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+          </a>
+          <ul class="sub" [ngClass]="(7 === expandedIndex)?'show':''">
+            <span *ngIf="7 === expandedIndex">
+              <!-- <li>
+                <a (click)="navigate('/admin/department')">
+                  <i class="fa fa-cog"></i>
+                  Manage Department
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/region')">
+                  <i class="fa fa-cog"></i>
+                  Manage Region
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/branch')">
+                  <i class="fa fa-cog"></i>
+                  Manage Branch
+                </a>
+              </li> -->
+              
+              <li>
+                <a (click)="navigate('/admin/manage-branch')">
+                  <i class="fa fa-cog"></i>
+                  Manage Branch
+                </a>
+              </li>
+
+              <li>
+                <a (click)="navigate('/admin/case-setup')">
+                  <i class="fa fa-cog"></i>
+                  Case Setup
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+
+        <li>
+          <a (click)="expandRow(1)">
+            <i class="fa fa-balance-scale"> </i>
+            Case Management
+            <span>
+              <i class="right-ico fa " [ngClass]="(1 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(1 === expandedIndex)?'show':''">
+            <span *ngIf="1 === expandedIndex">
+              <li>
+                <a (click)="navigate('/case/list')">
+                  <i class=" fa fa-list"></i>
+                  Case List 
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/case/create')">
+                  <i class="fa fa-plus"></i>
+                  Create Case
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+        <li>
+          <a (click)="expandRow(2)">
+            <i class="fa fa-users"></i>                                
+            User Management
+            <span>
+              <i class="right-ico fa " [ngClass]="(2 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(2 === expandedIndex)?'show':''">
+            <span *ngIf="2 === expandedIndex">
+              <li>
+                <a (click)="navigate('/admin/users/list')">
+                  <i class=" fa fa-list"></i>
+                  User List 
+                </a>
+              </li>
+              <li>
+                <a (click)="navigate('/admin/users/add')">
+                  <i class="fa fa-user-plus"></i>
+                  Add User
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+        <li>
+          <a (click)="expandRow(3)">
+            <i class="fa fa-gavel"></i>                                
+            Law Firm Management
+            <span>
+              <i class="right-ico fa " [ngClass]="(3 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(3 === expandedIndex)?'show':''">
+            <span *ngIf="3 === expandedIndex">
+              <li>
+                <a>
+                  <i class=" fa fa-list"></i>
+                  Firm List 
+                </a>
+              </li>
+              <li>
+                <a>
+                  <i class="fa fa-plus"></i>
+                  Add Firm
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+        <li>
+          <a (click)="expandRow(4)">
+            <i class="fa fa-cog"></i>                                
+            Settelments
+            <span>
+              <i class="right-ico fa " [ngClass]="(4 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(4 === expandedIndex)?'show':''">
+            <span *ngIf="4 === expandedIndex">
+              <li>
+                <a>
+                  <i class=" fa fa-plus"></i>
+                  Add Pre-Filing  
+                </a>
+              </li>
+              <li>
+                <a>
+                  <i class=" fa fa-plus"></i>
+                  Add Post-Filing  
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+        <li>
+          <a>
+            <i class="fa fa-handshake-o"></i>                                
+            Negotiation
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class="fa fa-university"></i>
+            Court Complaince Submission
+          </a>
+        </li>
+        <li>
+          <a (click)="expandRow(5)">
+            <i class="fa fa-cog"></i>                                
+            Auction
+            <span>
+              <i class="right-ico fa " [ngClass]="(5 === expandedIndex)?'fa-chevron-up':'fa-chevron-down'"></i>
+            </span>
+          </a>
+          <ul class="sub" [ngClass]="(5 === expandedIndex)?'show':''">
+            <span *ngIf="5 === expandedIndex">
+              <li>
+                <a>
+                  <i class=" fa fa-calendar-plus-o"></i>
+                  Schedule Auction 
+                </a>
+              </li>
+                              
+              <li>
+                <a>
+                  <i class=" fa fa-calendar-check-o "></i>
+                  Held Auction 
+                </a>
+              </li>
+            </span>
+          </ul>
+        </li>
+        <li>
+          <a>
+            <i class="fa fa-money "> </i>Payments
+          </a>
+        </li>
+        <li>
+          <a (click)="onlogOut()">
+            <i class="fa fa-sign-out"></i>Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+</div>

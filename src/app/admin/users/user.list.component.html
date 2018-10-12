@@ -1,0 +1,91 @@
+<secure-header *ngIf="isLogin"></secure-header>
+
+<section class="content-block">
+    <div class="row align-item-center">
+        <div class="col-lg-12 col-md-12 col-xs-12 tr-campaign">
+            <mat-card class="two-row-card">
+                <div class="tr-sec-box">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <mat-card-title>List of User(s)</mat-card-title>
+                            <!-- <div class="searh-result-string">Showing :nth of :n results
+                                </div> -->
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" [ngClass]="addStatus == true ?'': 'module-disable'">
+                             <div class="filter-con">
+                            <mat-form-field>
+                                <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                            </mat-form-field>
+                             </div>
+                            <div class="snipet download-btn">
+                                <button mat-raised-button color="primary" [routerLink]="['/admin/users/add']"> Add New User<i class="material-icons">add</i></button>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="col-lg-12">
+                        <mat-table #table [dataSource]="dataSource" class="table table-responsive soc-table">
+
+                            <!-- First Name Column -->
+                            <ng-container matColumnDef="firstName">
+                                <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+                                <mat-cell *matCellDef="let u"> {{u.firstName}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Last Name Column -->
+                            <ng-container matColumnDef="lastName">
+                                <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+                                <mat-cell *matCellDef="let u"> {{u.lastName}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Login Email Column -->
+                            <ng-container matColumnDef="loginEmail">
+                                <mat-header-cell *matHeaderCellDef> Login Email </mat-header-cell>
+                                <mat-cell *matCellDef="let u"> {{u.email}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Role Column -->
+                            <ng-container matColumnDef="role">
+                                <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+                                <mat-cell *matCellDef="let u"> - </mat-cell>
+                            </ng-container>
+
+                            <!-- Action Column -->
+                            <ng-container matColumnDef="action">
+                                <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                                <mat-cell *matCellDef="let u">
+                                <div class="btn-group" role="group" >
+                                    <!-- <button type="button" class="edit-btn" *ngIf="!user || (user && u.id != user.id)" mat-raised-button (click)="editUser(u)" value="before" matTooltip="Edit!"><i class="material-icons">mode_edit</i> </button>  -->
+                                    <button type="button" class="edit-btn" [disabled]="(user && u.id == user.id)" mat-raised-button (click)="editUser(u)" value="before" matTooltip="Edit!"><i class="material-icons">mode_edit</i> </button> 
+                                    <!-- <button type="button" color="accent" *ngIf="u.isActive" mat-raised-button (click)="deActivateUser(u)"><i class="material-icons">block</i></button> -->
+                                    <button type="button" class="block-btn" *ngIf="u.isActive" mat-raised-button (click)="deActivateUser(u)" matTooltipPosition="above" matTooltip="Deactive User"><i class="material-icons">block</i></button>
+                                    <button type="button" class="primary" *ngIf="!u.isActive" mat-raised-button (click)="activateUser(u)" matTooltipPosition="above" matTooltip=" Active User"><i class="material-icons">remove_red_eye</i></button>
+                                    <button type="button"  class="block-btn" *ngIf="!u.isBlocked" mat-raised-button (click)="blockUser(u)" matTooltipPosition="above" matTooltip="Block User"><i class="material-icons">lock_outline</i></button>
+                                    <button type="button" color="primary" *ngIf="u.isBlocked" mat-raised-button (click)="unBlockUser(u)" matTooltipPosition="above" matTooltip="Unblock User"><i class="material-icons">lock_open</i></button> 
+                                </div>
+                                  
+                                        
+                                    <!-- <label *ngIf="(user && u.id == user.id)">-</label> -->
+                                </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+
+                        <div class="" *ngIf="(dataSource.data.length == 0 || dataSource.filteredData.length == 0) && !isSpinner">
+                            <div class="snipet download-btn">
+                                <button (click)="refreshList()" mat-raised-button> 
+                                    <i class="material-icons">refresh</i> No Data Found
+                                </button>
+                            </div>
+                        </div>
+                        <spinner [visible]='isSpinner'></spinner>
+
+                        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</section>

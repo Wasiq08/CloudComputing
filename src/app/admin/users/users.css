@@ -1,0 +1,52 @@
+.table-container {
+    padding: 15px 0 0;
+}
+
+.mat-card-title {
+    color: #00796b;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+table.soc-table th {
+    border-top: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.6);
+    border-bottom-color: #d9d9d9;
+    vertical-align: top;
+}
+table.soc-table td {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+    border-top: none;
+    border-bottom: 1px solid #d9d9d9;
+    vertical-align: middle;
+}
+table.soc-table th:first-child, table.soc-table td:first-child {
+    width: 25%;
+}
+
+.searh-result-string {
+    font-size: 14px;
+    color: #666;
+}
+
+.inf-search-pro img {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    float: left;
+}
+.inf-sp-name {
+    line-height: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.inf-search-pro-details {
+    float: right;
+    width: calc(100% - 40px);
+    margin: 8px 0;
+}

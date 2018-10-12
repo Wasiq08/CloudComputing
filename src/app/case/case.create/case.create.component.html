@@ -1,0 +1,1176 @@
+<secure-header *ngIf="isLogin"></secure-header>
+<section class="content-block">
+
+    <div class="col-lg-12 col-md-12 col-xs-12 tr-campaign">
+        <mat-card class="two-row-card">
+            <div class="tr-sec-box">
+                <mat-card-title>Case File Request</mat-card-title>
+                <div>
+                    <!-- <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button> -->
+
+                    <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+                        <mat-step [stepControl]="firstFormGroup">
+                            <form [formGroup]="firstFormGroup">
+                                <ng-template matStepLabel>Relationship Manager </ng-template>
+                                <div class="row pbm ptm">
+                                    <div class="col-sm-4">
+                                        <mat-form-field>
+                                            <input matInput placeholder="SAP ID*" value="Ahsan-007 " required disabled>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field>
+                                            <input matInput placeholder="System ID*" value="NBP-007 " required disabled>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field>
+                                            <input matInput placeholder="Name*" value="Ahsan" required disabled>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button mat-button mat-in matStepperNext>Next</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="secondFormGroup">
+                            <form [formGroup]="secondFormGroup">
+                                <ng-template matStepLabel>Case basic Details</ng-template>
+                                <div class="max-height scrollable">
+                                    <div class="row ptm pbm">
+                                        <div class="col-sm-12">
+                                            <div>
+                                                Clubbed Case
+                                                <mat-checkbox> </mat-checkbox>
+                                            </div>
+
+                                            <mat-form-field class="mvl full-width">
+                                                <input type="serach" matInput placeholder="Search">
+                                                <mat-icon matSuffix>search</mat-icon>
+                                            </mat-form-field>
+
+                                        </div>
+                                        <div class="col-lg-12">
+
+                                            <table class="table table-responsive soc-table">
+                                                <tr>
+                                                    <th>
+                                                        No
+                                                    </th>
+                                                    <th>
+                                                        Case
+                                                    </th>
+                                                    <th>
+                                                        Suit#
+                                                    </th>
+                                                    <th>
+                                                        Case System
+                                                    </th>
+                                                    <th>
+                                                        Details
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        NBP vs HBL
+                                                    </td>
+                                                    <td>
+                                                        S-UIT03
+                                                    </td>
+                                                    <td>
+                                                        C-10202
+                                                    </td>
+                                                    <td>
+                                                        <button mat-raised-button color="primary">Details</button>
+                                                    </td>
+                                                    <td>
+                                                        <mat-checkbox> </mat-checkbox>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        NBP vs HBL
+                                                    </td>
+                                                    <td>
+                                                        S-UIT03
+                                                    </td>
+                                                    <td>
+                                                        C-10202
+                                                    </td>
+                                                    <td>
+                                                        <button mat-raised-button color="primary">Details</button>
+                                                    </td>
+                                                    <td>
+                                                        <mat-checkbox> </mat-checkbox>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        NBP vs HBL
+                                                    </td>
+                                                    <td>
+                                                        S-UIT03
+                                                    </td>
+                                                    <td>
+                                                        C-10202
+                                                    </td>
+                                                    <td>
+                                                        <button mat-raised-button color="primary">Details</button>
+                                                    </td>
+                                                    <td>
+                                                        <mat-checkbox> </mat-checkbox>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="row pbm ptm">
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder="Case Type">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder=" Case Territory">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder=" Case Classificaiton">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder=" Case Nature">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder=" Financial Exposure">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder=" Case Sub-nature">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Suit Number" value="">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Amount" value="">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Case File Date" value="">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <mat-select placeholder="Court">
+                                                    <mat-option value="ATB (Against The Banks )">
+                                                        ATB (Against The Bank)
+                                                    </mat-option>
+                                                    <mat-option value="BTB (By The Bank)">
+                                                        BTB (By The Bank)
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Objective" value="">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="CaseAttorney">
+                            <form [formGroup]="CaseAttorney">
+                                <ng-template matStepLabel>Case Atorney Holder</ng-template>
+                                <div class="row pbm ptm">
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="SAP ID" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="System ID" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="First Name" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Last name" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Email" value="">
+                                        </mat-form-field>
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <mat-select placeholder="Department">
+                                                <mat-option value="ATB (Against The Banks )">
+                                                    ATB (Against The Bank)
+                                                </mat-option>
+                                                <mat-option value="BTB (By The Bank)">
+                                                    BTB (By The Bank)
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Functional Position" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <mat-select placeholder="Designation">
+                                                <mat-option value="ATB (Against The Banks )">
+                                                    ATB (Against The Bank)
+                                                </mat-option>
+                                                <mat-option value="BTB (By The Bank)">
+                                                    BTB (By The Bank)
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <mat-select placeholder="Branch">
+                                                <mat-option value="ATB (Against The Banks )">
+                                                    ATB (Against The Bank)
+                                                </mat-option>
+                                                <mat-option value="BTB (By The Bank)">
+                                                    BTB (By The Bank)
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <mat-select placeholder="Region">
+                                                <mat-option value="ATB (Against The Banks )">
+                                                    ATB (Against The Bank)
+                                                </mat-option>
+                                                <mat-option value="BTB (By The Bank)">
+                                                    BTB (By The Bank)
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+
+
+                                <div>
+                                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                    <button mat-button (click)="stepper.reset()">Reset</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="DefaulterPersonalInformation">
+                            <form [formGroup]="DefaulterPersonalInformation">
+                                <ng-template matStepLabel>Defaulter Personal Information</ng-template>
+                                <div class="row ptm max-height scrollable">
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                            <mat-datepicker-toggle matSuffix [for]="picker">
+                                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                            </mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="CIF">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <mat-select placeholder="Entity Type">
+                                                <mat-option value=" Option - Link-1">
+                                                    Option - Link-1
+                                                </mat-option>
+                                                <mat-option value="  Option - Link-2">
+                                                    Option - Link-1
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="NTN" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Officail Address" value="">
+                                        </mat-form-field>
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput [matDatepicker]="dta" placeholder="Date Of Transfer Account">
+                                            <mat-datepicker-toggle matSuffix [for]="dta">
+                                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                            </mat-datepicker-toggle>
+                                            <mat-datepicker #dta></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Entity Name" value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="Sector / Segment  " value="">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <mat-select placeholder="Branch">
+                                                <mat-option value="ATB (Against The Banks )">
+                                                    ATB (Against The Bank)
+                                                </mat-option>
+                                                <mat-option value="BTB (By The Bank)">
+                                                    BTB (By The Bank)
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <mat-form-field class="full-width">
+                                            <input matInput placeholder="ECBI Code" value="">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <mat-table #table [dataSource]="dataSource" class="table table-responsive soc-table">
+
+                                                    <!--Case No Column -->
+                                                    <ng-container matColumnDef="caseNo">
+                                                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                                                        <mat-cell *matCellDef="let u"> 1 </mat-cell>
+                                                    </ng-container>
+
+                                                    <!-- Account No Column -->
+                                                    <ng-container matColumnDef="accountNo">
+                                                        <mat-header-cell *matHeaderCellDef> Account# </mat-header-cell>
+                                                        <mat-cell *matCellDef="let u"> 122122900 </mat-cell>
+                                                    </ng-container>
+
+                                                    <!-- Case Details Column -->
+                                                    <ng-container matColumnDef="caseDetails">
+                                                        <mat-header-cell *matHeaderCellDef>Details</mat-header-cell>
+                                                        <mat-cell *matCellDef="let u">
+                                                            <button mat-raised-button> View Details</button>
+                                                        </mat-cell>
+                                                    </ng-container>
+
+                                                    <!-- Action Column -->
+                                                    <ng-container matColumnDef="userAction">
+                                                        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                                                        <mat-cell *matCellDef="let u">
+
+                                                            <mat-checkbox></mat-checkbox>
+
+                                                        </mat-cell>
+                                                    </ng-container>
+
+
+
+
+                                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                                </mat-table>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <mat-tab-group>
+                                                    <mat-tab label="Account 1">
+                                                        <mat-horizontal-stepper>
+                                                            <mat-step [stepControl]="DefaulterAccountInformation">
+                                                                <form [formGroup]="DefaulterAccountInformation">
+                                                                    <ng-template matStepLabel>DefaulterAccountInformation</ng-template>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Account No" value="">
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Product Code" value="">
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Product Description" value="">
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Classification type" value="">
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Classification Percentage">
+                                                                                    <option value="10%">10%</option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput [matDatepicker]="ALD" placeholder="Acknowledgement of Liability Date">
+                                                                                <mat-datepicker-toggle matSuffix [for]="ALD">
+                                                                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                                                </mat-datepicker-toggle>
+                                                                                <mat-datepicker #ALD></mat-datepicker>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput [matDatepicker]="dod" placeholder="Date of default">
+                                                                                <mat-datepicker-toggle matSuffix [for]="dod">
+                                                                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                                                </mat-datepicker-toggle>
+                                                                                <mat-datepicker #dod></mat-datepicker>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput [matDatepicker]="rd" placeholder="Renewal Date">
+                                                                                <mat-datepicker-toggle matSuffix [for]="rd">
+                                                                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                                                </mat-datepicker-toggle>
+                                                                                <mat-datepicker #rd></mat-datepicker>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <button mat-button matStepperNext>Next</button>
+                                                            </mat-step>
+                                                            <mat-step [stepControl]="DefaulterCompanyDirector">
+                                                                <form [formGroup]="DefaulterCompanyDirector">
+                                                                    <ng-template matStepLabel>Company Director</ng-template>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-4">
+
+                                                                            <h3>Director's CIF </h3>
+                                                                            <span>
+                                                                                <mat-form-field>
+                                                                                    <input matInput placeholder="Enter CIF" value="">
+                                                                                </mat-form-field>
+                                                                            </span>
+
+                                                                            <span>
+                                                                                <button mat-raised-button color="primary">Add</button>
+                                                                            </span>
+                                                                            <mat-list role="list">
+                                                                                <mat-list-item role="listitem">Item 1</mat-list-item>
+                                                                                <mat-list-item role="listitem">Item 2</mat-list-item>
+                                                                                <mat-list-item role="listitem">Item 3</mat-list-item>
+                                                                            </mat-list>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+
+                                                                            <h3>Contact Person</h3>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput placeholder="Name" value="">
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput placeholder="Location" value="">
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput placeholder="Contact" value="">
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput placeholder="Designation" value="">
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </form>
+
+                                                                <p class="ptm">
+                                                                    <button mat-button matStepperNext>Next</button>
+                                                                </p>
+                                                            </mat-step>
+                                                            <mat-step [stepControl]="DefaulterLoanFinance">
+                                                                <form [formGroup]="DefaulterLoanFinance">
+                                                                    <ng-template matStepLabel>Loan Finance Details</ng-template>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-6">
+                                                                            <h3>Loan Finance Details</h3>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Principal" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Markup" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Others" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <textarea matInput placeholder="Note" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+                                                                <p class="ptm">
+                                                                    <button mat-button matStepperNext>Next</button>
+                                                                </p>
+                                                            </mat-step>
+
+                                                            <mat-step [stepControl]=" DefaulterLoanSpecificationDetials">
+                                                                <form [formGroup]=" DefaulterLoanSpecificationDetials">
+                                                                    <ng-template matStepLabel>Loan Specification Details</ng-template>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-12">
+                                                                            <h3>Loan Finance Details</h3>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Product Groupe">
+                                                                                    <mat-option value="10%">10%</mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Collateral Option">
+                                                                                    <mat-option value="10%">10%</mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Product Security">
+                                                                                    <mat-option value="10%">10%</mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+
+                                                                        </div>
+
+                                                                        <div class="col-sm-4">
+
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Guarantor">
+                                                                                    <mat-option value=" Option - Link-1">
+                                                                                        Option - Link-1
+                                                                                    </mat-option>
+                                                                                    <mat-option value="  Option - Link-2">
+                                                                                        Option - Link-1
+                                                                                    </mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Guarantee Amount" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput [matDatepicker]="ExpryDate" placeholder="Expiry Date">
+                                                                                <mat-datepicker-toggle matSuffix [for]="ExpryDate">
+                                                                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                                                </mat-datepicker-toggle>
+                                                                                <mat-datepicker #ExpryDate></mat-datepicker>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Guarantee Amount" value="">
+                                                                            </mat-form-field>
+
+                                                                        </div>
+
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Mortgage type">
+                                                                                    <mat-option value="10%">Moveable</mat-option>
+                                                                                    <mat-option value="10%">Non-moveable</mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Mortgage Options">
+                                                                                    <mat-option value="10%">Pledge / Stock</mat-option>
+                                                                                    <mat-option value="10%">Commodities </mat-option>
+                                                                                    <mat-option value="10%">Lease</mat-option>
+                                                                                    <mat-option value="10%">Property</mat-option>
+                                                                                    <mat-option value="10%">Debt instrument</mat-option>
+
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Pledge Stock">
+                                                                                    <mat-option value="10%">Gold</mat-option>
+                                                                                    <mat-option value="10%">Rice </mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Quantity" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Quantity Unit">
+                                                                                    <mat-option value="10%">Ton</mat-option>
+                                                                                    <mat-option value="10%">Kg </mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Assets Type">
+                                                                                    <mat-option value="10%">Car</mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+
+
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+
+                                                                            <mat-radio-group>
+                                                                                <mat-radio-button value="1">Equitable 1</mat-radio-button>
+                                                                                <mat-radio-button value="2">Registered Mortgage</mat-radio-button>
+                                                                            </mat-radio-group>
+
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Product Type">
+                                                                                    <mat-option value="10%">Ton</mat-option>
+                                                                                    <mat-option value="10%">Kg </mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Area" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Area Unit" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput placeholder="Address" value="">
+                                                                            </mat-form-field>
+                                                                            <mat-form-field class="full-width">
+                                                                                <textarea matInput placeholder="Description" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                                                                            </mat-form-field>
+
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <h3>Valuation Process Details</h3>
+                                                                            <div class="row">
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <mat-select placeholder="Valuator">
+                                                                                            <mat-option value="10%">Car</mat-option>
+                                                                                        </mat-select>
+                                                                                    </mat-form-field>
+
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput placeholder="Market Value" value="">
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput [matDatepicker]="ValDate" placeholder="Date">
+                                                                                        <mat-datepicker-toggle matSuffix [for]="ValDate">
+                                                                                            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                                                        </mat-datepicker-toggle>
+                                                                                        <mat-datepicker #ValDate></mat-datepicker>
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                                <div class="col-sm-6">
+                                                                                    <mat-form-field class="full-width">
+                                                                                        <input matInput placeholder="Market Value" value="">
+                                                                                    </mat-form-field>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+                                                                <p class="ptm">
+                                                                    <button mat-button matStepperNext>Next</button>
+                                                                </p>
+                                                            </mat-step>
+                                                            <mat-step [stepControl]="charge">
+                                                                <form [formGroup]="charge">
+
+                                                                    <ng-template matStepLabel>Charge</ng-template>
+                                                                    <div class="row pbm ptm">
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <mat-select placeholder="Charge Type">
+                                                                                    <mat-option value="10%">Car</mat-option>
+                                                                                </mat-select>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            <div class="upload-con">
+
+                                                                                <span>
+                                                                                    <input type="file" multiple id="file" class="inputfile" />
+                                                                                </span>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div class="col-sm-4">
+                                                                            <mat-form-field class="full-width">
+                                                                                <input matInput [matDatepicker]="VCrDate" placeholder="Charge Registration Date (if any)">
+                                                                                <mat-datepicker-toggle matSuffix [for]="VCrDate">
+                                                                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                                                </mat-datepicker-toggle>
+                                                                                <mat-datepicker #VCrDate></mat-datepicker>
+                                                                            </mat-form-field>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                <p class="ptm">
+                                                                    <button mat-button matStepperNext>Next</button>
+                                                                </p>
+                                                            </mat-step>
+                                                            <mat-step [stepControl]="DefaulterDocumentList">
+                                                                <ng-template matStepLabel>Check List</ng-template>
+                                                                <form [formGroup]="DefaulterDocumentList">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <mat-grid-list cols="2" rowHeight="4:1">
+                                                                                <mat-grid-tile>
+                                                                                    <mat-icon mat-list-icon>attach_file</mat-icon>
+                                                                                    <h3 mat-line>Upload Document</h3>
+
+                                                                                    <div class="upload-con" mat-line>
+
+                                                                                        <span>
+                                                                                            <input type="file" multiple id="file" class="inputfile" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </mat-grid-tile>
+                                                                                <mat-grid-tile>
+                                                                                    <mat-icon mat-list-icon>attach_file</mat-icon>
+                                                                                    <h3 mat-line>Upload Document</h3>
+
+                                                                                    <div class="upload-con" mat-line>
+
+                                                                                        <span>
+                                                                                            <input type="file" multiple id="file" class="inputfile" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </mat-grid-tile>
+                                                                                <mat-grid-tile>
+                                                                                    <mat-icon mat-list-icon>attach_file</mat-icon>
+                                                                                    <h3 mat-line>Upload Document</h3>
+
+                                                                                    <div class="upload-con" mat-line>
+
+                                                                                        <span>
+                                                                                            <input type="file" multiple id="file" class="inputfile" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </mat-grid-tile>
+                                                                                <mat-grid-tile>
+                                                                                    <mat-icon mat-list-icon>attach_file</mat-icon>
+                                                                                    <h3 mat-line>Upload Document</h3>
+
+                                                                                    <div class="upload-con" mat-line>
+
+                                                                                        <span>
+                                                                                            <input type="file" multiple id="file" class="inputfile" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </mat-grid-tile>
+                                                                                <mat-grid-tile>
+                                                                                    <mat-icon mat-list-icon>attach_file</mat-icon>
+                                                                                    <h3 mat-line>Upload Document</h3>
+
+                                                                                    <div class="upload-con" mat-line>
+
+                                                                                        <span>
+                                                                                            <input type="file" multiple id="file" class="inputfile" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </mat-grid-tile>
+                                                                                <mat-grid-tile>
+                                                                                    <mat-icon mat-list-icon>attach_file</mat-icon>
+                                                                                    <h3 mat-line>Upload Document</h3>
+
+                                                                                    <div class="upload-con" mat-line>
+
+                                                                                        <span>
+                                                                                            <input type="file" multiple id="file" class="inputfile" />
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </mat-grid-tile>
+                                                                            </mat-grid-list>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="ptm">
+                                                                        <button mat-button matStepperNext>Next</button>
+                                                                    </p>
+                                                                </form>
+                                                            </mat-step>
+
+                                                        </mat-horizontal-stepper>
+                                                    </mat-tab>
+                                                    <mat-tab label="Account 2">Content 2</mat-tab>
+                                                </mat-tab-group>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                            <div>
+                                <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                <button mat-button mat-in matStepperNext>Next</button>
+                            </div>
+
+                        </mat-step>
+                        <mat-step [stepControl]="LawyerRecommandation">
+                            <form [formGroup]="LawyerRecommandation">
+                                <ng-template matStepLabel>Lawyer</ng-template>
+                                <div class="max-height scrollable">
+                                    <div class="row ptm pbm">
+
+                                        <div class="col-md-12">
+                                            <mat-radio-group>
+                                                <mat-radio-button value="1">From Existing Panel</mat-radio-button>
+                                                <mat-radio-button value="2">New Law Firm</mat-radio-button>
+                                            </mat-radio-group>
+                                        </div>
+
+                                        <div class="col-sm-12 ptm pbm ">
+                                            <mat-checkbox>Main Lawyer</mat-checkbox>
+                                            <mat-checkbox>AOR Laywer</mat-checkbox>
+                                            <mat-checkbox>Support Lawyer</mat-checkbox>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h3>Main Lawyer</h3>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Laywer Firm">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Firm Code">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Type">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Jurisdiction">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Expertise">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Black List Event">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Email">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Personal Contact">
+                                                    </mat-form-field>
+                                                    <button mat-raised-button color="primary">Details</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <h3>AOR Lawyer</h3>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Laywer Firm">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Firm Code">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Type">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Jurisdiction">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Expertise">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <mat-select placeholder="Black List Event">
+                                                            <mat-option value="">
+                                                                Acc
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Email">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <mat-form-field class="full-width">
+                                                        <input matInput placeholder="Personal Contact">
+                                                    </mat-form-field>
+                                                    <button mat-raised-button color="primary">Details</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                                <h3>Support Lawyer</h3>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <mat-select placeholder="Laywer Firm">
+                                                                <mat-option value="">
+                                                                    Acc
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <input matInput placeholder="Firm Code">
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <mat-select placeholder="Type">
+                                                                <mat-option value="">
+                                                                    Acc
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <mat-select placeholder="Jurisdiction">
+                                                                <mat-option value="">
+                                                                    Acc
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <mat-select placeholder="Expertise">
+                                                                <mat-option value="">
+                                                                    Acc
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <mat-select placeholder="Black List Event">
+                                                                <mat-option value="">
+                                                                    Acc
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <input matInput placeholder="Email">
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <mat-form-field class="full-width">
+                                                            <input matInput placeholder="Personal Contact">
+                                                        </mat-form-field>
+                                                        <button mat-raised-button color="primary">Details</button>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                <button mat-button mat-in matStepperNext>Next</button>
+                            </form>
+
+                        </mat-step>
+                        <mat-step [stepControl]="final">
+                            <form [formGroup]="final">
+                                <ng-template matStepLabel>Note</ng-template>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                            <mat-form-field class="full-width">
+                                                    <textarea matInput placeholder="Description Note" matTextareaAutosize matAutosizeMinRows="7"
+                                                              matAutosizeMaxRows="5"></textarea>
+                                            </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-6">
+                                           
+                                                    <mat-form-field class="full-width">
+                                                            <input matInput placeholder="Claim Amount">
+                                                    </mat-form-field>
+                                           
+                                    </div>
+                                </div>
+                            </form>
+                            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                            <button mat-raised-button>Save</button>
+                            <button mat-raised-button color="primary">Submit</button>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+
+
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</section>

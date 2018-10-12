@@ -1,0 +1,59 @@
+<div class="row align-item-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div>
+                <!--- Drop Zone -->
+                <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader"
+                    class="well my-drop-zone">
+                    <div class="my-dropbox">
+                        <mat-icon>photo_library</mat-icon>
+                        <div class="drp-txt" ng2FileSelect [uploader]="uploader" multiple>Drop files here to upload</div>
+                    </div>
+                    <input type="file" ng2FileSelect [uploader]="uploader" multiple id="file" class="inputfile" />
+                    <label for="file"></label>
+                </div>
+                <!--end-->
+    
+    
+            </div>
+            <!-- Progress Bar 0-->
+            <div>
+                <div class="cx-progress" style *ngIf='uploader.queue && uploader.queue.length>0'>
+                    <div class="cx-progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                </div>
+            </div>
+            <!-- End Bar 0-->
+            <div class="hint-box">*Maximum file size is 10MB. JPG, PNG, GIF, PDF, DOC, PPT, XLS, MP4, MP3 and WMA file formats are allowed.</div>
+            <!--File Preview -->
+            <div *ngIf="!hideQueue">
+                <div class="media-item" *ngFor="let item of uploader.queue">
+                    <span class="media-box">
+                        <img src="" imgPreview [image]="item?._file" class="media-object" />
+                    </span>
+                    <span class="media-box pdf" *ngIf="item?._file.type == 'application/pdf'">PDF</span>
+                    <span class="media-box xls" *ngIf="item?._file.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">XLS</span>
+                    <span class="media-box doc" *ngIf="item?._file.type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'">DOC</span>
+                    <span class="media-box doc" *ngIf="item?._file.type == 'text/plain'">DOC</span>
+                    <span class="media-box ppt" *ngIf="item?._file.type == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">PPT</span>
+                    <span class="media-box video" *ngIf="item?._file.type == 'video/mp4'">MP4</span>
+                    <span class="media-box audio" *ngIf="item?._file.type == 'audio/mp3'">MP3</span>
+    
+    
+                    <mat-icon (click)="item.remove()" matTooltip="Delete">delete</mat-icon>
+                </div>
+            </div>
+            <div>
+                <div class="text-right pvl">
+                    <button type="button" mat-raised-button color="primary" (click)="uploader.uploadAll(); hideQueue= true " [disabled]="!uploader.getNotUploadedItems().length">
+                        Upload
+                    </button>
+                    <!-- <button type="button" mat-raised-button class="gry-btn" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                                        Cancel
+                                    </button>
+                    <button type="button" mat-raised-button color="warn" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                                        Remove
+                                    </button> -->
+                </div>
+            </div>
+            <!--File Preview -->
+        </div>
+    </div>

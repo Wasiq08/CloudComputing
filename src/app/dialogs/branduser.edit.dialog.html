@@ -1,0 +1,79 @@
+<div class="row align-item-center">
+        <!-- <form name="form" #b="ngForm" novalidate> -->
+        <form [formGroup]="form" (ngSubmit)=onSubmit(formRegister.value)>
+            <div>
+                <div class="row align-item-center">
+    
+                    <div class="col-lg-6 col-md-6">
+    
+                        <!--First Name -->
+                        <mat-form-field class="full-width">
+    
+                            <input matInput placeholder="First Name" name="firstName" [(ngModel)]="branduser.firstName" #firstName="ngModel" required
+                                pattern="[a-zA-Z ]*" maxlength="100">
+    
+                            <mat-error *ngIf="firstName.hasError('pattern')">
+                                Please enter a valid First Name
+                            </mat-error>
+                            <mat-error *ngIf="firstName.hasError('required')">
+                                First Name is
+                                <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="firstName.hasError('maxlength')">
+                                Invalid First Name (maximum 100 characters are allowed)
+                            </mat-error>
+                        </mat-form-field>
+    
+                    </div>
+    
+    
+                    <div class="col-lg-6 col-md-6">
+    
+                        <!--Last Name -->
+                        <mat-form-field class="full-width">
+    
+                            <input matInput placeholder="Last Name" name="lastName" [(ngModel)]="branduser.lastName" #lastName="ngModel" required pattern="[a-zA-Z ]*"
+                                maxlength="100">
+                            <mat-error *ngIf="lastName.hasError('pattern')">
+                                Please enter a valid Last Name
+                            </mat-error>
+                            <mat-error *ngIf="lastName.hasError('required')">
+                                Last Name is
+                                <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="lastName.hasError('maxlength')">
+                                Invalid Last Name (maximum 100 characters are allowed)
+                            </mat-error>
+                        </mat-form-field>
+    
+    
+                    </div>
+    
+    
+    
+                    <div class="col-lg-6 col-md-6">
+                        <mat-form-field>
+                            <mat-select required class="full-width" placeholder="Select Role" [(ngModel)]="selectedRole" name="role" #role="ngModel"
+                                (change)="onRoleSelected($event)">
+                                <mat-option *ngFor="let role of roles" [value]="role.id">
+                                    {{ role.roleName }}
+                                </mat-option>
+                            </mat-select>
+    
+                            <mat-error *ngIf="role.hasError('required')">
+                                Please select any
+                                <strong>role</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+    
+    
+                    <div class="col-lg-12 col-md-12 text-right">
+                        <button color="primary" mat-raised-button [disabled]="!b.form.valid " (click)="onSubmit()">SUBMIT </button>
+                    </div>
+    
+                </div>
+            </div>
+    
+        </form>
+    </div>

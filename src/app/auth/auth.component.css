@@ -1,0 +1,255 @@
+/* .auth-bg {
+    background: #00796b no-repeat !important;
+	background-size: cover;
+	padding-bottom: 60px;
+	position: relative;
+	margin:0;
+	min-height: 100vh;
+}
+.authorization-card {
+  max-width: 450px;
+  padding: 0 0;
+  margin: 10px auto;
+}
+
+.card-module {
+  padding: 20px 40px;
+}
+
+.mat-tab-header {
+    border-bottom: 1px solid transparent;
+}
+
+.mat-tab-label {
+	color: #00796b;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.auth-form {
+    padding: 10px 0;
+}
+
+.content {
+    font-size: 14px;
+    padding: 10px;
+    font-weight: 400;
+}
+
+.logo-placeholder {
+	font-size: 24px;
+    font-weight: 400;
+    padding: 40px 40px 20px;
+    width: auto;
+}
+
+.form-action-bar {
+    width: 100%;
+    padding: 5px 0;
+}
+
+.form-divider {
+    color: #4554a4;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px 0;
+    position: relative;
+}
+
+.form-divider span {
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 10px 0 0;
+}
+
+.form-divider:before {
+    content: '';
+    height: 1px;
+    background-color: rgba(0,0,0,0.12);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 51%;
+    z-index: -1;
+}
+
+a.icon-link {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #6d6d6d;
+}
+
+a.icon-link.fb:hover {
+	color: #3b5998;
+}
+
+a.icon-link.tw:hover {
+	color: #1da1f2;
+}
+
+a.icon-link.yt:hover {
+	color: #cd201f;
+}
+
+a.icon-link.ig:hover {
+	color: #405de6;
+}
+
+a.icon-link.sc:hover {
+	color: #fffc00;
+}
+
+.helping-txt {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6d6d6d;
+    padding: 10px 0;
+}
+
+.checkbox-wrapper {
+    margin: 10px 0;
+    padding: 0 0 0 15px;
+}
+
+.bl-link {
+	color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    margin: 9px 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.footer {
+    min-height: 60px;
+    margin-top: -60px;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px;
+    width: calc(100% - 40px);
+}
+
+.footer-credits {
+	float: left;
+}
+
+.footer-link-col {
+	float: right;
+}
+.footer-links {
+	text-decoration: none;
+	margin: 0 10px;
+}
+
+.clearfix {
+	content: '';
+	clear: both;
+	display: table;
+}
+
+.inverted {
+    color: #fff;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.auth-form mat-form-field.full-width {
+    margin-bottom: 10px;
+}
+
+mat-hint.unsuccessful {
+    color: #f44336;
+}
+a.check-box-link {
+    color: #00796b ;
+}
+
+
+.payment-login{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f5f5f5;
+
+}
+
+.mat-card-title {
+    color: #00796b;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.title-payml {
+    font-size: 20px;
+    color: #333;
+}
+
+.payment-btn {
+    font-size: 18px;
+    padding: 0 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 28px;
+    border: 2px solid #00796b;
+    background-color: #00796b;
+    color: #fff;
+    cursor: pointer;
+}
+.payment-btn:hover {
+    background-color: #0b9c59;
+    border-color: #0b9c59;
+    color: #fff;
+}
+
+.proceed-btn {
+    font-size: 18px;
+    padding: 0 40px;
+    line-height: 52px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 28px;
+    border: 2px solid;
+    background-color: transparent;
+    color: #444;
+    cursor: pointer;
+}
+.proceed-btn:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.txt-gen-a {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 20px;
+}
+
+.payment-login-pg-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -75px 0 0 -283px;
+} */

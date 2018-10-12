@@ -1,0 +1,54 @@
+<div class="heading">
+    Upload media
+</div>
+
+
+
+
+
+<div class="row align-item-center bg-camp-4 inner-campaign-box4">
+    <div class="col-md-6">
+        <!-- <file-upload [camp]="camp" (attachmentIds)="attachID($event)" [type]="'campaign'"> -->
+        <file-upload>
+        </file-upload>
+
+        <!-- <div class="media-item" *ngFor="let attach of camp.attachments; let i=index">
+            <span class="media-box">
+                            <img *ngIf="attach.meta.type == 'image'" [src]="attach.thumbnails.small.url" class="media-object" />
+                        </span>
+            <span class="media-box pdf" *ngIf="attach.meta.type == 'document' && attach.original.extension =='pdf'">PDF</span>
+            <span class="media-box xls" *ngIf="attach.meta.type == 'document' && (attach.original.extension =='xls' || attach.original.extension =='xlsx' )">XLS</span>
+            <span class="media-box ppt" *ngIf="attach.meta.type == 'application/vnd.openxmlformats-officedocument.presentationml.presentation'">PPT</span>
+            <span class="media-box doc" *ngIf="attach.meta.type == 'document' && attach.original.extension =='docx' || attach.original.extension =='doc' ">DOC</span>
+            <span class="media-box video" *ngIf="attach.meta.type == 'video/mp4'">MP4</span>
+            <span class="media-box audio" *ngIf="attach.meta.type == 'audio/mp3'">MP3</span>
+            
+        </div> -->
+
+
+        <!-- <div class="pdb-l">
+            <mat-form-field class="full-width">
+                <input matInput #message maxlength="256" placeholder="Add your media link" (keyup.enter)="addItem()" [(ngModel)]="medialink">
+                <mat-hint align="start">*Add your publicly accessable media link from Dropbox, SkyDrive or Google Drive</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="anchore-tag-line" *ngFor="let link of medialinksUrl ; let $index=index;">
+            <span>{{link}}</span>
+            <span class="anchore-tag-line-icn"><i class="material-icons"(click)="removeLink($index)">cancel</i></span>
+        </div> -->
+
+    </div>
+    <div class="col-md-6">
+
+    </div>
+
+    <!-- <div *ngFor="let image of _albums; let i=index">
+                    <img [src]="image.thumb" (click)="open(i)" />
+                </div> -->
+
+
+
+
+
+
+</div>

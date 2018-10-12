@@ -1,0 +1,421 @@
+<div class="inner-page">
+
+    <auth-header></auth-header>
+
+    <div class="section">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-12">
+                    <div class="caption-main">
+                        Legal Management System
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="auth-box sign-up">
+                        <mat-progress-bar *ngIf='isSubmitted' color="warn" mode="indeterminate"></mat-progress-bar>
+                        <h1>Signup</h1>
+                        <form [formGroup]="formRegister" autocomplete="on" (ngSubmit)=onSubmit(formRegister.value)>
+                            <div class="row">
+
+                                <!-- SAP Id -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">SAP Id</label>
+                                                <input placeholder="sap id" value="" type="text" class="lms-input"> -->
+
+                                        <!-- <mat-form-field class="full-width" hintLabel="Max 10 characters"> -->
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-form-field> -->
+                                            <input formControlName="sapId" matInput #input maxlength="50" placeholder="SAP Id" [(ngModel)]="user.sapId" (focusout)="onSapIdFocusOut()"
+                                                matTooltip='SAP Id should be a combination of alphanumeric characters' required>
+                                            <!-- (focusout)="onSapIdFocusOut()" -->
+                                            <mat-hint align="end">{{user.sapId?.length || 0}}/50</mat-hint>
+                                            <mat-error *ngIf="formRegister.controls['sapId'].touched && formRegister.controls['sapId'].errors?.required">
+                                                SAP Id is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['sapId'].touched && formRegister.controls['sapId'].errors?.pattern">
+                                                SAP Id is
+                                                <strong>invalid</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['sapId'].errors?.notAvailable">
+                                                SAP Id is not available
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+                                <!-- First Name -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">First Name</label>
+                                        <input placeholder="first name" value="" type="text" class="lms-input"> -->
+
+                                        <!-- <mat-form-field hintLabel="Max 10 characters"> -->
+                                        <mat-form-field class="full-width">
+                                            <input formControlName="firstName" matInput maxlength="100" placeholder="First Name" [(ngModel)]="user.firstName" (focusout)="onFirstNameFocusOut()"
+                                                matTooltip='First Name should be a combination of characters and spaces' required>
+                                            <mat-hint align="end">{{user.firstName?.length || 0}}/100</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['firstName'].errors?.required">
+                                                First Name is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['firstName'].errors?.pattern">
+                                                First Name is invalid
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Last Name -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">Last Name</label>
+                                        <input placeholder="last name" value="" type="text" class="lms-input"> -->
+
+                                        <!-- <mat-form-field hintLabel="Max 10 characters"> -->
+                                        <mat-form-field class="full-width">
+                                            <input formControlName="lastName" matInput maxlength="100" placeholder="Last Name" [(ngModel)]="user.lastName" (focusout)="onLastNameFocusOut()"
+                                                matTooltip='Last Name should be a combination of characters and spaces' required>
+                                            <mat-hint align="end">{{user.lastName?.length || 0}}/100</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['lastName'].errors?.required">
+                                                Last Name is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['lastName'].errors?.pattern">
+                                                Last Name is invalid
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">Email</label>
+                                        <input placeholder="Email" value="" type="email" [(ngModel)]='user.email' formControlName="email" class="lms-input"> -->
+
+                                        <mat-form-field class="full-width">
+                                            <input matInput [(ngModel)]="user.email" placeholder="Email" formControlName="email" maxlength="50" (focusout)="onEmailFocusOut()"
+                                                required>
+                                            <mat-hint align="end">{{user.email?.length || 0}}/50</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['email'].errors?.required">
+                                                Email is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="!formRegister.controls['email'].errors?.required && (formRegister.controls['email'].errors?.pattern || formRegister.controls['email'].errors?.email) ">
+                                                Please enter a valid email
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['email'].errors?.notAvailable">
+                                                Email is not available
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Password -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">Password</label>
+                                        <input placeholder="Password" value="" type="password" [(ngModel)]='user.password' formControlName="password" class="lms-input"> -->
+
+                                        <mat-form-field class="full-width">
+                                            <input matInput [(ngModel)]="user.password" placeholder="Password" maxlength="20" formControlName="password" [type]="phide ? 'password' : 'text'"
+                                                (focusout)="onPasswordFocusOut()" matTooltip='Password should be min 8 digit , max 20 digit and combination of alphanumberic and specified special characters (!@#$%^&*_+) with 1 uppercase letter, 1 lowercase letter and  1 numeric character'
+                                                required appBlockCopyPaste>
+                                            <mat-icon matSuffix (click)="phide = !phide">{{phide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                            <mat-hint align="end">{{user.password?.length || 0}}/20</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['password'].errors?.required">
+                                                Password is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-error *ngIf="formRegister.controls['password'].errors?.pattern">
+                                                Password is invalid
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+                                <!-- Confirm Password -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">Password</label>
+                                            <input placeholder="Password" value="" type="password" [(ngModel)]='user.password' formControlName="password" class="lms-input"> -->
+
+                                        <mat-form-field class="full-width">
+                                            <input matInput [(ngModel)]="user.confirmPassword" placeholder="Confirm Password" maxlength="20" formControlName="confirmPassword"
+                                                [type]="cphide ? 'password' : 'text'" (focusout)="onConfirmPasswordFocusOut()"
+                                                required appBlockCopyPaste>
+                                            <mat-icon matSuffix (click)="cphide = !cphide">{{cphide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                            <mat-hint align="end">{{user.confirmPassword?.length || 0}}/20</mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['confirmPassword'].errors?.required">
+                                                Confirm Password is
+                                                <strong>required</strong>
+                                            </mat-error>
+
+                                            <mat-error *ngIf="formRegister.controls['confirmPassword'].errors?.matchPassword">
+                                                <!-- <mat-error *ngIf="!isMatchPass == true"> -->
+                                                Confirm Password does not match
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+                                <!-- Designation  -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <!-- <label class="input-label">Designation</label>
+                                        <input placeholder="Designation" value="" type="text" class="lms-input"> -->
+
+                                        <!-- <mat-form-field>
+                                            <mat-select placeholder="Designation">
+                                                <mat-option value="option">Option</mat-option>
+                                            </mat-select>
+                                            <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                                        </mat-form-field> -->
+
+
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-select [(ngModel)]="user.designationId" formControlName="designationId" placeholder="Select Designation" (focusout)="onDesignationFocusOut(formRegister.value.designationId)"
+                                                required> -->
+                                            <mat-select [(ngModel)]="user.designationId" formControlName="designationId" placeholder="Select Designation" (change)="onDesignationFocusOut(formRegister.value.designationId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let designation of designations" [value]="designation.id ">
+                                                    {{ designation.designationName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="formRegister.controls['designationId'].errors?.required">
+                                                Designation is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                            <mat-hint class="unsuccessful" *ngIf="!isDesignationValid">
+                                                Designation is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+                                        </mat-form-field>
+
+
+                                        <!-- (focus)="onCountryFocus()" -->
+                                        <!-- <mat-form-field>
+                                            <input matInput [matAutocomplete]="desauto" formControlName="designationId" [formControl]="designationCtrl" (focusout)="onDesignationFocusOut(designationCtrl)"
+                                                [(ngModel)]="user.designationId" placeholder="Select Designation" required>
+
+                                            <mat-autocomplete #desauto="matAutocomplete" [displayWith]='selectedDesignationName()'>
+                                                <mat-option *ngFor="let designation of filteredDesignations | async" [value]="designation">
+                                                    {{ designation.designationName }}
+                                                </mat-option>
+                                            </mat-autocomplete>
+
+                                            <mat-error *ngIf="formRegister.controls['designationId'].errors?.required">
+                                                Designation is <strong>required</strong>
+                                            </mat-error>
+                                            <mat-hint class="unsuccessful" *ngIf="!isCountryValid">
+                                                Designation is not <strong>available</strong>
+                                            </mat-hint>
+                                        </mat-form-field> -->
+
+                                    </div>
+                                </div>
+
+                                <!-- Department  -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-select [(ngModel)]="user.departmentId" formControlName="departmentId" placeholder="Select Department" (focusout)="onDepartmentFocusOut(formRegister.value.departmentId)"
+                                                required> -->
+                                            <mat-select [(ngModel)]="user.departmentId" formControlName="departmentId" placeholder="Select Department" (change)="onDepartmentFocusOut(formRegister.value.departmentId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let department of departments" [value]="department.id ">
+                                                    {{ department.departmentName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="unsuccessful" *ngIf="!isDepartmentValid">
+                                                Department is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['departmentId'].errors?.required">
+                                                Department is
+                                                <strong>required</strong>
+                                            </mat-error>
+
+                                        </mat-form-field>
+
+
+                                    </div>
+                                </div>
+
+                                <!-- Role  -->
+
+                                <!-- <div class="col-md-4">
+                                    <div class="form-field">
+                                        <mat-form-field class="full-width">
+                                            <mat-select [(ngModel)]="user.userRolePermission.roleId" formControlName="roleId" placeholder="Select Role" (focusout)="onRoleFocusOut(formRegister.value.roleId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let role of roles" [value]="role.id ">
+                                                    {{ role.roleName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="unsuccessful" *ngIf="!isRoleValid">
+                                                Role is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+                                            <mat-error *ngIf="formRegister.controls['roleId'].errors?.required">
+                                                Role is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div> -->
+
+                                <!-- Country  -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-select [(ngModel)]="user.countryId" formControlName="countryId" placeholder="Select Country" (focusout)="onCountryFocusOut(formRegister.value.countryId)"
+                                                required> -->
+                                            <mat-select [(ngModel)]="user.countryId" formControlName="countryId" placeholder="Select Country" (change)="onCountryFocusOut(formRegister.value.countryId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let country of countries" [value]="country.id ">
+                                                    {{ country.countryName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="unsuccessful" *ngIf="!isCountryValid">
+                                                Country is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['countryId'].errors?.required">
+                                                Country is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+
+
+                                    </div>
+                                </div>
+
+                                <!-- Region  -->
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-select [(ngModel)]="user.regionId" formControlName="regionId" placeholder="Select Region" (focusout)="onRegionFocusOut(formRegister.value.regionId)"
+                                                required> -->
+                                            <mat-select [(ngModel)]="user.regionId" formControlName="regionId" placeholder="Select Region" (change)="onRegionFocusOut(formRegister.value.regionId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let region of regions" [value]="region.id ">
+                                                    {{ region.regionName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="unsuccessful" *ngIf="!isRegionValid">
+                                                Region is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['regionId'].errors?.required">
+                                                Region is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-select [(ngModel)]="user.cityId" formControlName="cityId" placeholder="Select City" (focusout)="onCityFocusOut(formRegister.value.cityId)"
+                                                required> -->
+                                            <mat-select [(ngModel)]="user.cityId" formControlName="cityId" placeholder="Select City" (change)="onCityFocusOut(formRegister.value.cityId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let city of cities" [value]="city.id ">
+                                                    {{ city.cityName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="unsuccessful" *ngIf="!isCityValid">
+                                                City is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['cityId'].errors?.required">
+                                                City is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-field">
+
+                                        <mat-form-field class="full-width">
+                                            <!-- <mat-select [(ngModel)]="user.branchId" formControlName="branchId" placeholder="Select Branch" (focusout)="onBranchFocusOut(formRegister.value.branchId)"
+                                                required> -->
+                                            <mat-select [(ngModel)]="user.branchId" formControlName="branchId" placeholder="Select Branch" (change)="onBranchFocusOut(formRegister.value.branchId)"
+                                                required>
+                                                <mat-option>None</mat-option>
+                                                <mat-option *ngFor="let branch of branches" [value]="branch.id ">
+                                                    {{ branch.branchName }}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-hint class="unsuccessful" *ngIf="!isBranchValid">
+                                                Branch is not
+                                                <strong>available</strong>
+                                            </mat-hint>
+
+                                            <mat-error *ngIf="formRegister.controls['branchId'].errors?.required">
+                                                Branch is
+                                                <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="text-right">
+                                <button type="submit" class="lms-round-btn login" [disabled]="isSubmitted">Signup</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                    <div class="bottom-txt">
+                        Already have an account?
+                        <a [routerLink]="['/login']">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <auth-footer></auth-footer>
+
+</div>

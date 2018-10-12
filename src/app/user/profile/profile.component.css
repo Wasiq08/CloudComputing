@@ -1,0 +1,100 @@
+.div-20{ width: 180px;
+    float: left;
+    padding-top: 10px; }
+.div-65{ margin-bottom: 42px;
+    padding-top: 10px;
+    width: calc(100% - 200px);
+    float: right;}
+.two-row-card {
+    float: left;
+    width: 100%; padding: 0px 0px 10px 0px;
+}
+.p-card-inner {
+    
+    padding: 24px;
+    position: relative; 
+    margin-top:-84px; 
+}
+
+.cover-img-box {
+    background-color: #ccc;
+    border-radius: 2px 2px 0 0;
+    overflow: hidden;
+}
+
+
+
+.cover-img-box img {
+    width: 100%;
+    height: 196px;
+}
+.profile-info{width:calc(100% - 200px); float: right}
+.profile-img {
+    margin-bottom: 42px;
+    width: 180px;
+    float: left;
+}
+.profile-img img {
+    border: 5px solid #fff;
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    
+}
+.brand-name {
+    color: #fff;
+    font-weight: 500;
+    font-size: 30px;
+    padding: 5px 10px 4px;
+    margin-bottom:12px;
+}
+
+.brand-location {
+    color: #555;
+    font-size: 13px;
+    padding: 4px 10px;
+}
+
+.brand-location .mat-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    vertical-align: middle;
+    color: #555;
+}
+.brand-about {
+    color: #231f20;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.pay-tab-wrapper {
+    min-height: 408px;
+    padding-bottom: 60px;
+    position: relative;
+    padding-top: 10px;
+}
+.management-card .pay-tab-wrapper .btn-box {
+    position: absolute;
+    right: 0px;
+    bottom: 24px;
+}
+.component-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0,0,0,0.38);
+    margin-bottom: 0;
+}
+.social-icon {padding: 10px;}
+.social-icon .fa {
+    font-size: 24px;
+    width: 42px;
+    color: #555655;
+    cursor: pointer;
+}
+.socialRating{padding: 10px;}
+hr{float: left;
+    width: 100%;}
+strong{color: #676767;}    
+        

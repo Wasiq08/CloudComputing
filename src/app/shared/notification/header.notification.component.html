@@ -1,0 +1,43 @@
+<div class="wrapper-notification clearfix mat-menu-item">
+        <div class="notification-container clearfix">
+            <div class="notification-left-pane">
+                <span>Notifications</span>
+                <span class="pri-txt" *ngIf="notif.notification">{{notif.notification?.totalUnread}}</span>
+            </div>
+            <div class="notification-right-pane">
+                <button mat-raised-button color="primary" *ngIf="showAllNotif.length>0" (click)="viewAll()">View All</button>
+            </div>
+        </div>
+        <div class="notification-ul">
+            <ul class="clearfix">
+                <li *ngFor="let noti of showAllNotif">
+                    <div class="notification-list-container clearfix unread" *ngIf="noti.readStatus==0">
+                        <img class="notification-user-thumb" src="{{noti.sender.entity.profilePic.thumbnails.small.url}}" alt="profile">
+                        <div class="notification-status">
+                            <div (click)="readMe(noti.id, noti.webUrl)">
+                                <div [innerHTML]="noti.body"></div>
+                                <span class="notidot"></span>
+                                <div class="notify-time">{{noti.date}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notification-list-container clearfix" *ngIf="noti.readStatus==1">
+                        <img class="notification-user-thumb" src="{{noti.sender.entity.profilePic.thumbnails.small.url}}" alt="profile">
+                        <div class="notification-status">
+                            <div (click)="readMe(noti.id, noti.webUrl)">
+                                <div [innerHTML]="noti.body"></div>
+                                <span class="notidot"></span>
+                                <div class="notify-time">{{noti.date}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="empty-data" *ngIf="showAllNotif && showAllNotif.length<1">
+            <i class="fa fa-bell"></i>
+            <div class="empty-data-txt">No new notifications</div>
+        </div>
+    
+    
+    </div>

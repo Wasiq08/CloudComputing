@@ -1,0 +1,57 @@
+<div class="row">
+
+    <header class="header col-lg-12">
+      <div class="row header-inside-row">
+
+        <div class="col-md-9">
+          <div class="header__logo hidden-sm-down">
+            <div class="logo-placeholder inverted">
+              <div class="logo" [routerLink]="['/']">
+                <img src="assets/img/nbp-logo.png" [routerLink]="['/']" alt="nbp">
+              </div>
+              <!-- <a href="#"><img src="assets/img/nbp-logo.png" class="logo" alt="nbp"></a> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <ul class="top-nav">
+            <!-- <li *ngIf="user.entityType != 'backoffice'"> -->
+            <li>
+              <a>
+                <mat-icon [matMenuTriggerFor]="menu" style="color:black">notifications</mat-icon>
+              </a>
+              <span class="notification-count" *ngIf="this.countNotif>0 && notif.notification">{{notif.notification?.totalUnread}}</span>
+            </li>
+
+            <li>
+              <a [matMenuTriggerFor]="profilemenu" style="color:black">
+                <!-- <img class="profile-thumb small" src="{{profilePic?.url}}" alt="profile_pic"> -->
+                <img class="profile-thumb small" src="assets/img/user.png" alt="profile_pic">
+              </a>
+            </li>
+            <mat-menu #menu="matMenu">
+              <!-- <header-notification [notif]='notif' (onNotifClick)='onNotifClick($event)'></header-notification> -->
+              <header-notification (onNotifClick)='onNotifClick($event)'></header-notification>
+            </mat-menu>
+            
+            <mat-menu #profilemenu="matMenu" class="profile-menu">
+              <div>
+                <ul class="nav-menu">
+                  <li (click)="onProfileViewClick()">Profile</li>
+                  <!-- <li (click)="onProfileClick()">Edit</li> -->
+                  <li (click)="onChangePasswordClick()">Change Password</li>
+                  <li (click)="onlogOut()">Logout</li>
+                </ul>
+              </div>
+            </mat-menu>
+
+          </ul>
+          <!-- <notification [ngStyle]="{'display':'none'}" [noti]='notif' (onNotifClickUpdate)='onNotifClickUpdate($event)'></notification> -->
+        </div>
+      </div>
+    </header>
+    <sidebar></sidebar>
+  </div>
+     
+   
+      

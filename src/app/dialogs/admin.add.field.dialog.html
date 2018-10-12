@@ -1,0 +1,1254 @@
+<div class="dialog">
+
+    <div *ngIf="fieldType==='designation'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Designation</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Designation Name" formControlName="designationName" maxlength="50" name="ind" [(ngModel)]="designation.designationName"
+                            matTooltip='Designation Name should be a combination of characters and spaces' (focusout)="onDesignationFocusOut()"
+                            required />
+                        <mat-hint align="end">{{designation.designationName?.length || 0}}/50</mat-hint>
+                        <mat-error *ngIf="form.controls['designationName'].errors?.required">
+                            Designation Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['designationName'].errors?.pattern">
+                            Designation Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='department'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Department</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Department Name" formControlName="departmentName" maxlength="100" name="ind" [(ngModel)]="department.departmentName"
+                            matTooltip='Department Name should be a combination of characters and spaces' (focusout)="onDepartmentFocusOut()"
+                            required />
+                        <mat-hint align="end">{{department.departmentName?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['departmentName'].errors?.required">
+                            Department Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['departmentName'].errors?.pattern">
+                            Department Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='role'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Role</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Role Name" formControlName="roleName" maxlength="80" name="ind" [(ngModel)]="role.roleName"
+                            matTooltip='Role Name should be a combination of characters and spaces' (focusout)="onRoleFocusOut()"
+                            required />
+                        <mat-hint align="end">{{role.roleName?.length || 0}}/80</mat-hint>
+                        <mat-error *ngIf="form.controls['roleName'].errors?.required">
+                            Role Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['roleName'].errors?.pattern">
+                            Role Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <mat-select [(ngModel)]="role.departmentId" formControlName="departmentId" placeholder="Select Department" required>
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let department of departments" [value]="department.id ">
+                                {{ department.departmentName }}
+                            </mat-option>
+                        </mat-select>
+                        <!-- <mat-hint class="unsuccessful" *ngIf="!isDepartmentValid">
+                            Department is not
+                            <strong>available</strong>
+                        </mat-hint> -->
+
+                        <mat-error *ngIf="form.controls['departmentId'].errors?.required">
+                            Department is
+                            <strong>required</strong>
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='region'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Region</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Region Name" formControlName="regionName" maxlength="100" name="ind" [(ngModel)]="region.regionName"
+                            matTooltip='Region Name should be a combination of characters and spaces' (focusout)="onRegionFocusOut()"
+                            required />
+                        <mat-hint align="end">{{region.regionName?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['regionName'].errors?.required">
+                            Region Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['regionName'].errors?.pattern">
+                            Region Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <mat-select [(ngModel)]="region.countryId" formControlName="countryId" placeholder="Select Country" required>
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let country of countries" [value]="country.id ">
+                                {{ country.countryName }}
+                            </mat-option>
+                        </mat-select>
+                        <!-- <mat-hint class="unsuccessful" *ngIf="!isCountryValid">
+                            Country is not
+                            <strong>available</strong>
+                        </mat-hint> -->
+
+                        <mat-error *ngIf="form.controls['countryId'].errors?.required">
+                            Country is
+                            <strong>required</strong>
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='branch'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Branch</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Branch Name" formControlName="branchName" maxlength="100" name="ind" [(ngModel)]="branch.branchName"
+                            matTooltip='Branch Name should be a combination of characters and spaces' (focusout)="onBranchFocusOut()"
+                            required />
+                        <mat-hint align="end">{{branch.branchName?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['branchName'].errors?.required">
+                            Branch Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['branchName'].errors?.pattern">
+                            Branch Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <!-- <mat-select [(ngModel)]="newCountryId" [ngModelOptions]="{standalone: true}" placeholder="Select Country" (focusout)="onCountryFocusOut()"> -->
+                        <mat-select [(ngModel)]="newCountryId" [ngModelOptions]="{standalone: true}" placeholder="Select Country" (change)="onCountryFocusOut()">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let country of countries" [value]="country.id ">
+                                {{ country.countryName }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <!-- <mat-select [(ngModel)]="newRegionId" [ngModelOptions]="{standalone: true}" placeholder="Select Region" (focusout)="onRegionFocusOut()"> -->
+                        <mat-select [(ngModel)]="newRegionId" [ngModelOptions]="{standalone: true}" placeholder="Select Region" (change)="onRegionFocusOut()">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let region of regions" [value]="region.id ">
+                                {{ region.regionName }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <mat-select [(ngModel)]="branch.cityId" formControlName="cityId" placeholder="Select City" required>
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let city of cities" [value]="city.id ">
+                                {{ city.cityName }}
+                            </mat-option>
+                        </mat-select>
+                        <!-- <mat-hint class="unsuccessful" *ngIf="!isCityValid">
+                            City is not
+                            <strong>available</strong>
+                        </mat-hint> -->
+
+                        <mat-error *ngIf="form.controls['cityId'].errors?.required">
+                            City is
+                            <strong>required</strong>
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='permission'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Permission</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Permission Name" formControlName="permissionName" maxlength="50" name="ind" [(ngModel)]="permission.permissionName"
+                            matTooltip='Permission Name should be a combination of characters and spaces' (focusout)="onPermissionFocusOut()"
+                            required />
+                        <mat-hint align="end">{{permission.permissionName?.length || 0}}/50</mat-hint>
+                        <mat-error *ngIf="form.controls['permissionName'].errors?.required">
+                            Permission Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['permissionName'].errors?.pattern">
+                            Permission Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='caseType'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Case Type</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Type" formControlName="caseType" maxlength="100" name="ind" [(ngModel)]="caseType.caseType"
+                            matTooltip='Case Type should be a combination of characters and spaces' (focusout)="onCaseTypeFocusOut()"
+                            required />
+                        <mat-hint align="end">{{caseType.caseType?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['caseType'].errors?.required">
+                            Case Type is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['caseType'].errors?.pattern">
+                            Case Type is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Type Description" formControlName="caseTypeDescription" maxlength="100" name="ind" [(ngModel)]="caseType.caseTypeDescription"
+                            matTooltip='Case Type Description should be a combination of characters and spaces' (focusout)="onCaseTypeDescriptionFocusOut()"
+                        />
+                        <mat-hint align="end">{{caseType.caseTypeDescription?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseTypeDescription'].errors?.required">
+                            Case Type Description is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseTypeDescription'].errors?.pattern">
+                            Case Type Description is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Type Tooltip" formControlName="caseTypeTooltip" maxlength="100" name="ind" [(ngModel)]="caseType.caseTypeTooltip"
+                            matTooltip='Case Type Tooltip should be a combination of characters and spaces' (focusout)="onCaseTypeTooltipFocusOut()"
+                        />
+                        <mat-hint align="end">{{caseType.caseTypeTooltip?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseTypeTooltip'].errors?.required">
+                            Case Type Tooltip is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseTypeTooltip'].errors?.pattern">
+                            Case Type Tooltip is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='caseNature'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Case Nature</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Nature" formControlName="caseNature" maxlength="100" name="ind" [(ngModel)]="caseNature.caseNature"
+                            matTooltip='Case Nature should be a combination of characters and spaces' (focusout)="onCaseNatureFocusOut()"
+                            required />
+                        <mat-hint align="end">{{caseNature.caseNature?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['caseNature'].errors?.required">
+                            Case Nature is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['caseNature'].errors?.pattern">
+                            Case Nature is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Nature Description" formControlName="caseNatureDescription" maxlength="100" name="ind"
+                            [(ngModel)]="caseNature.caseNatureDescription" matTooltip='Case Nature Description should be a combination of characters and spaces'
+                            (focusout)="onCaseNatureDescriptionFocusOut()" />
+                        <mat-hint align="end">{{caseNature.caseNatureDescription?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseNatureDescription'].errors?.required">
+                            Case Nature Description is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseNatureDescription'].errors?.pattern">
+                            Case Nature Description is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Nature Tooltip" formControlName="caseNatureTooltip" maxlength="100" name="ind" [(ngModel)]="caseNature.caseNatureTooltip"
+                            matTooltip='Case Nature Tooltip should be a combination of characters and spaces' (focusout)="onCaseNatureTooltipFocusOut()"
+                        />
+                        <mat-hint align="end">{{caseNature.caseNatureTooltip?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseNatureTooltip'].errors?.required">
+                            Case Nature Tooltip is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseNatureTooltip'].errors?.pattern">
+                            Case Nature Tooltip is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='caseTerritory'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Case Territory</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Territory" formControlName="caseTerritory" maxlength="100" name="ind" [(ngModel)]="caseTerritory.caseTerritory"
+                            matTooltip='Case Territory should be a combination of characters and spaces' (focusout)="onCaseTerritoryFocusOut()"
+                            required />
+                        <mat-hint align="end">{{caseTerritory.caseTerritory?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['caseTerritory'].errors?.required">
+                            Case Territory is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['caseTerritory'].errors?.pattern">
+                            Case Territory is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Territory Description" formControlName="caseTerritoryDescription" maxlength="100" name="ind"
+                            [(ngModel)]="caseTerritory.caseTerritoryDescription" matTooltip='Case Territory Description should be a combination of characters and spaces'
+                            (focusout)="onCaseTerritoryDescriptionFocusOut()" />
+                        <mat-hint align="end">{{caseTerritory.caseTerritoryDescription?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseTerritoryDescription'].errors?.required">
+                            Case Territory Description is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseTerritoryDescription'].errors?.pattern">
+                            Case Territory Description is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Territory Tooltip" formControlName="caseTerritoryTooltip" maxlength="100" name="ind" [(ngModel)]="caseTerritory.caseTerritoryTooltip"
+                            matTooltip='Case Territory Tooltip should be a combination of characters and spaces' (focusout)="onCaseTerritoryTooltipFocusOut()"
+                        />
+                        <mat-hint align="end">{{caseTerritory.caseTerritoryTooltip?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseTerritoryTooltip'].errors?.required">
+                            Case Territory Tooltip is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseTerritoryTooltip'].errors?.pattern">
+                            Case Territory Tooltip is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='caseClassification'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Case Classification</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Classification" formControlName="caseClassification" maxlength="100" name="ind" [(ngModel)]="caseClassification.caseClassification"
+                            matTooltip='Case Classification should be a combination of characters and spaces' (focusout)="onCaseClassificationFocusOut()"
+                            required />
+                        <mat-hint align="end">{{caseClassification.caseClassification?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['caseClassification'].errors?.required">
+                            Case Classification is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['caseClassification'].errors?.pattern">
+                            Case Classification is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Classification Description" formControlName="caseClassificationDescription" maxlength="100"
+                            name="ind" [(ngModel)]="caseClassification.caseClassificationDescription" matTooltip='Case Classification Description should be a combination of characters and spaces'
+                            (focusout)="onCaseClassificationDescriptionFocusOut()" />
+                        <mat-hint align="end">{{caseClassification.caseClassificationDescription?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseClassificationDescription'].errors?.required">
+                            Case Classification Description is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseClassificationDescription'].errors?.pattern">
+                            Case Classification Description is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Case Classification Tooltip" formControlName="caseClassificationTooltip" maxlength="100" name="ind"
+                            [(ngModel)]="caseClassification.caseClassificationTooltip" matTooltip='Case Classification Tooltip should be a combination of characters and spaces'
+                            (focusout)="onCaseClassificationTooltipFocusOut()" />
+                        <mat-hint align="end">{{caseClassification.caseClassificationTooltip?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['caseClassificationTooltip'].errors?.required">
+                            Case Classification Tooltip is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseClassificationTooltip'].errors?.pattern">
+                            Case Classification Tooltip is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='caseDocument'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Case Document</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Document Name" formControlName="caseDocument" maxlength="100" name="ind" [(ngModel)]="caseDocument.documentName"
+                            matTooltip='Document Name should be a combination of characters and spaces' (focusout)="onCaseDocumentFocusOut()"
+                            required />
+                        <mat-hint align="end">{{caseDocument.documentName?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['caseDocument'].errors?.required">
+                            Document Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['caseDocument'].errors?.pattern">
+                            Document Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Document Description" formControlName="caseDocumentDescription" maxlength="100" name="ind" [(ngModel)]="caseDocument.documentDescription"
+                            matTooltip='Document Description should be a combination of characters and spaces' (focusout)="onCaseDocumentDescriptionFocusOut()"
+                        />
+                        <mat-hint align="end">{{caseDocument.documentDescription?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['documentDescription'].errors?.required">
+                            Document Description is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseDocumentDescription'].errors?.pattern">
+                            Document Description is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Document Tooltip" formControlName="caseDocumentTooltip" maxlength="100" name="ind" [(ngModel)]="caseDocument.documentTooltip"
+                            matTooltip='Document Tooltip should be a combination of characters and spaces' (focusout)="onCaseDocumentTooltipFocusOut()"
+                        />
+                        <mat-hint align="end">{{caseDocument.documentTooltip?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['documentTooltip'].errors?.required">
+                            Document Tooltip is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseDocumentTooltip'].errors?.pattern">
+                            Document Tooltip is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='caseDocumentNature'">
+        <!-- <form name="form" #m="ngForm" (keydown.enter)="$event.preventDefault()" novalidate> -->
+        <form name="form" [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <!-- <h1 mat-dialog-title>Add New Case Document Nature</h1> -->
+                    <h1 mat-dialog-title>{{title}}</h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Document Nature Name" formControlName="caseDocumentNature" maxlength="100" name="ind" [(ngModel)]="caseDocumentNature.documentNatureName"
+                            matTooltip='Document Nature Name should be a combination of characters and spaces' (focusout)="onCaseDocumentNatureFocusOut()"
+                            required />
+                        <mat-hint align="end">{{caseDocumentNature.documentNatureName?.length || 0}}/100</mat-hint>
+                        <mat-error *ngIf="form.controls['caseDocumentNature'].errors?.required">
+                            Document Nature Name is
+                            <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.controls['caseDocumentNature'].errors?.pattern">
+                            Document Nature Name is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Document Nature Description" formControlName="caseDocumentNatureDescription" maxlength="100"
+                            name="ind" [(ngModel)]="caseDocumentNature.documentNatureDescription" matTooltip='Document Nature Description should be a combination of characters and spaces'
+                            (focusout)="onCaseDocumentNatureDescriptionFocusOut()" />
+                        <mat-hint align="end">{{caseDocumentNature.documentNatureDescription?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['documentNatureDescription'].errors?.required">
+                            Document Nature Description is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseDocumentNatureDescription'].errors?.pattern">
+                            Document Nature Description is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Document Nature Tooltip" formControlName="caseDocumentNatureTooltip" maxlength="100" name="ind"
+                            [(ngModel)]="caseDocumentNature.documentNatureTooltip" matTooltip='Document Nature Tooltip should be a combination of characters and spaces'
+                            (focusout)="onCaseDocumentNatureTooltipFocusOut()" />
+                        <mat-hint align="end">{{caseDocumentNature.documentNatureTooltip?.length || 0}}/100</mat-hint>
+                        <!-- <mat-error *ngIf="form.controls['documentNatureTooltip'].errors?.required">
+                            Document Nature Tooltip is
+                            <strong>required</strong>
+                        </mat-error> -->
+                        <mat-error *ngIf="form.controls['caseDocumentNatureTooltip'].errors?.pattern">
+                            Document Nature Tooltip is
+                            <strong>invalid</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="fieldType==='viewRolePermissions'">
+        <div class="row align-item-center">
+            <div class="col-md-12">
+                <h1 mat-dialog-title>Role Name : {{role.roleName}}</h1>
+            </div>
+            <div class="col-lg-12 dialog-box-content">
+                <div *ngFor="let permission of role.permissions">
+                    {{permission.permissionName}}
+                </div>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+            <div class="col-lg-12 col-md-12 col-sm-12 textright">
+                <button mat-raised-button color="warn" tabindex="-1" (click)="onNoClick()">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div *ngIf="fieldType==='objective'">
+        <form name="form" #b="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Objective </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Objective Name" pattern="^[a-zA-Z ]*$" name="objectiveName" [(ngModel)]="campaignObjective.displayName"
+                            #objectiveName="ngModel" required />
+                        <mat-error *ngIf="objectiveName.hasError('pattern')">
+                            Objective name can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="campaignObjective.placeholderDescription"
+                            required #placeholderDescription="ngModel" />
+                        <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                            Placeholder description can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="campaignObjective.tooltipDescription"
+                            required #tooltipDescription="ngModel" />
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!b.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='task'">
+        <form name="form" #c="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Task </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Task Name" pattern="^[a-zA-Z ]*$" name="objectiveName" [(ngModel)]="campaignTask.displayName"
+                            #objectiveName="ngModel" required />
+                        <mat-error *ngIf="objectiveName.hasError('pattern')">
+                            Task name can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="campaignTask.placeholderDescription"
+                            required #placeholderDescription="ngModel" />
+                        <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                            Placeholder description can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="campaignTask.tooltipDescription"
+                            required #tooltipDescription="ngModel" />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!c.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div> -->
+
+    <!-- <div *ngIf="fieldType==='sentiment'">
+        <form name="form" #d="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Sentiment </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Sentiment Name" pattern="^[a-zA-Z ]*$" name="objectiveName" [(ngModel)]="sentiments.displayName"
+                            #objectiveName="ngModel" required />
+                        <mat-error *ngIf="objectiveName.hasError('pattern')">
+                            Sentiment name can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="sentiments.placeholderDescription"
+                            required #placeholderDescription="ngModel" />
+                        <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                            Placeholder description can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="sentiments.tooltipDescription" required
+                            #tooltipDescription="ngModel" />
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!d.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='level'">
+        <form name="form" #f="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Engagement Level </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Engagement Level" pattern="^[a-zA-Z ]*$" name="engLevel" [(ngModel)]="engagementList.displayValue"
+                            #engLevel="ngModel" required />
+                        <mat-error *ngIf="engLevel.hasError('pattern')">
+                            Engagement level can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Pricing Factor" name="pricingfactor" [(ngModel)]="engagementList.pricingFactor" #pricingfactor="ngModel"
+                        />
+
+                    </mat-form-field>
+
+
+
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Criteria to display" name="criteria" [(ngModel)]="engagementList.criteriaToDisplay" required
+                            #criteria="ngModel" />
+                        <mat-error *ngIf="criteria.hasError('pattern')">
+                            Criteria can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!f.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='follower'">
+        <form name="form" #g="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Follower Count Range </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Follower Count Range" name="follower" [(ngModel)]="followers.displayRange" #follower="ngModel"
+                            required />
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Pricing Factor " name="pricingfactor" [(ngModel)]="followers.pricingFactor" #pricingfactor="ngModel"
+                            required />
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!g.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+
+    <!-- <div *ngIf="fieldType==='type'">
+        <form name="form" #h="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Influencer Type </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Influencer Type" pattern="^[a-zA-Z ]*$" name="type" [(ngModel)]="influencerTypes.displayName"
+                            #type="ngModel" required />
+                        <mat-error *ngIf="type.hasError('pattern')">
+                            Influencer type can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Placeholder Description" name="placeholderDescription" [(ngModel)]="influencerTypes.placeholderDescription"
+                            required #placeholderDescription="ngModel" />
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="influencerTypes.tooltipDescription"
+                            required #tooltipDescription="ngModel" />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!h.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='interest'">
+        <form name="form" #i="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Interest </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Interest name" pattern="^[a-zA-Z ]*$" name="interest" [(ngModel)]="interestGroups.name" #interest="ngModel"
+                            required />
+                        <mat-error *ngIf="interest.hasError('pattern')">
+                            Interest name can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!i.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='age'">
+        <form name="form" #j="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Interest </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Age group" name="age" [(ngModel)]="ageGroups.displayName" #age="ngModel" required />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!j.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='plan'">
+        <form name="form" #e="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Payment Plan </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Payment Plan Name" pattern="^[a-zA-Z ]*$" name="paymentPlan" [(ngModel)]="paymentPlans.displayName"
+                            #paymentPlan="ngModel" required />
+                        <mat-error *ngIf="paymentPlan.hasError('pattern')">
+                            Payment plan name can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="paymentPlans.placeholderDescription"
+                            required #placeholderDescription="ngModel" />
+                        <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                            Placeholder description can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="paymentPlans.tooltipDescription"
+                            required #tooltipDescription="ngModel" />
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!e.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='gateway'">
+        <form name="form" #k="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Payment Gateway </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Payment Gateway" pattern="^[a-zA-Z ]*$" name="gateway" [(ngModel)]="gateways.displayName" #gateway="ngModel"
+                            required />
+                        <mat-error *ngIf="gateway.hasError('pattern')">
+                            Payment gateway can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!k.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='currency'">
+        <form name="form" #l="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Currency </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Currency name" pattern="^[a-zA-Z ]*$" name="curr" [(ngModel)]="currency.displayName" #curr="ngModel"
+                            required />
+                        <mat-error *ngIf="curr.hasError('pattern')">
+                            Currency can only contain alphabets
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Currency symbol" name="symbol" [(ngModel)]="currency.symbolName" #symbol="ngModel" required
+                        />
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput [matAutocomplete]="auto" (focus)="onCountryFocus()" (focusout)="onCountryFocusOut()" [(ngModel)]="country.name"
+                            [formControl]="countryCtrl" placeholder="Select Country" required>
+                        <mat-error *ngIf="countryCtrl.hasError('required')">
+                            Country is <strong>required</strong>
+                        </mat-error>
+                        <mat-hint class="unsuccessful" *ngIf="!isCountryValid">
+                            Country is not <strong>available</strong>
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <mat-autocomplete #auto="matAutocomplete" mat-input-name="country">
+                        <mat-option *ngFor="let ctry of filteredCountries | async" [value]="ctry.name">
+                            {{ ctry.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!l.form.valid || !isCountryValid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+
+    <!-- <div *ngIf="fieldType==='rating'">
+        <form name="form" #r="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+            <div class="row align-item-center">
+                <div class="col-md-12">
+                    <h1 mat-dialog-title>Add new Rating </h1>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Rating " type="number" name="pricing-rating" [(ngModel)]="rating.rating" required />
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-12">
+                    <mat-form-field class="full-width">
+                        <input matInput placeholder="Pricing Factor " type="number" name="pricing-factor" [(ngModel)]="rating.pricingFactor" />
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                    <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                    <button mat-raised-button [disabled]="!r.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+            </div>
+        </form>
+    </div> -->
+
+</div>
+
+
+<!-- <div *ngIf="fieldType==='contact'">
+    <form name="form" #n="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+        <div class="row align-item-center">
+            <div class="col-md-12">
+                <h1 mat-dialog-title>Add new Contact Category</h1>
+            </div>
+            <div class="col-lg-12">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Contact Category name" pattern="^[a-zA-Z ]*$" name="ind" [(ngModel)]="category.displayName"
+                        #ind="ngModel" required />
+                    <mat-error *ngIf="ind.hasError('pattern')">
+                        Category name can only contain alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="category.placeholderDescription"
+                        required #placeholderDescription="ngModel" />
+                    <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                        Placeholder description can only contain alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="category.tooltipDescription" required
+                        #tooltipDescription="ngModel" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                <button mat-raised-button [disabled]="!n.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+        </div>
+    </form>
+</div> -->
+
+
+<!-- <div *ngIf="fieldType==='brand-feature'">
+    <form name="form" #bf="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+        <div class="row align-item-center">
+            <div class="col-md-12">
+                <h1 mat-dialog-title>Add Brand Subscription Feature </h1>
+            </div>
+            <div class="col-lg-12">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Feature Name" pattern="^[a-zA-Z ]*$" name="objectiveName" [(ngModel)]="feature.displayName"
+                        #objectiveName="ngModel" required />
+                    <mat-error *ngIf="objectiveName.hasError('pattern')">
+                        Objective name can only contain alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="feature.placeholderDescription"
+                        #placeholderDescription="ngModel" />
+                    <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                        Placeholder description can only contain alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="feature.tooltipDescription" #tooltipDescription="ngModel"
+                    />
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                <button mat-raised-button [disabled]="!bf.form.valid" color="primary" (click)="onYesClick(fieldType)" tabindex="2">SUBMIT</button></div>
+        </div>
+    </form>
+</div> -->
+
+
+<!-- <div *ngIf="fieldType==='platform-stats'">
+    <form name="form" #o="ngForm" (keydown.enter)="$event.preventDefault()" novalidate>
+        <div class="row align-item-center">
+            <div class="col-md-12">
+                <h1 mat-dialog-title>Add Platform Statistic Category</h1>
+            </div>
+            <div class="col-lg-12">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Statistic Name" pattern="^[a-zA-Z ]*$" name="statName" [(ngModel)]="stat.displayName" #statName="ngModel"
+                        required />
+                    <mat-error *ngIf="statName.hasError('pattern')">
+                        Statistic name can only contain alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Placeholder Description" pattern="^[a-zA-Z ]*$" name="placeholderDescription" [(ngModel)]="stat.placeholderDescription"
+                        #placeholderDescription="ngModel" />
+                    <mat-error *ngIf="placeholderDescription.hasError('pattern')">
+                        Placeholder description can only contain alphabets
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Tooltip Description" name="tooltipDescription" [(ngModel)]="stat.tooltipDescription" #tooltipDescription="ngModel"
+                    />
+                </mat-form-field>
+
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="row align-item-center dialog-btn-contianer">
+            <div class="col-lg-12 col-md-12 col-sm-12 text-right">
+                <button mat-raised-button tabindex="-1" (click)="onNoClick()">CANCEL</button>
+                <button mat-raised-button [disabled]="!o.form.valid" color="primary" (click)="onYesClick()" tabindex="2">SUBMIT</button></div>
+        </div>
+    </form>
+</div> -->

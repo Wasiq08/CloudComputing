@@ -1,0 +1,117 @@
+<!-- <secure-header *ngIf="isLogin"></secure-header> -->
+
+<!-- <section class="content-block"> -->
+<div class="row align-item-center">
+    <div class="col-lg-12 col-md-12 col-xs-12 tr-campaign">
+
+        <mat-card class="two-row-card">
+            <div class="tr-sec-box">
+
+                <!-- <div class="row align-item-center">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                            <mat-card-title>Role</mat-card-title>
+
+                        </div>
+                    </div> -->
+
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="example-header">
+                            <mat-form-field class="full-width">
+                                <!-- <mat-select [(ngModel)]="newDepartmentId" placeholder="Select Department" (focusout)="onDepartmentFocusOut()"> -->
+                                <mat-select [(ngModel)]="newDepartmentId" placeholder="Select Department" (change)="onDepartmentFocusOut()">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let department of departments" [value]="department.id">
+                                        {{ department.departmentName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 snipet download-btn">
+                        <button (click)="addField('role')" mat-raised-button color="primary" [disabled]="!addStatus"> Add New Role
+                                <i class="material-icons">add</i>
+                            </button>
+                    </div>
+                </div>
+
+                <!-- <div class="table-container">
+                        <table class="table table-responsive soc-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="10">Role Name</th>
+                                    <th class="action">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let role of roles">
+                                    <td colspan="10">{{role.roleName}}</td>
+                                    <td>
+                                        <span>
+                                            <button mat-raised-button color="primary" [disabled]="!updateStatus" (click)="onEdit('role', role.id, role.roleName, null , null , role.departmentId)"><i class="material-icons">mode_edit</i>EDIT</button>
+                                        </span>
+                                        <span>
+                                            <button (click)="onDelete('role', role.id, role.roleName)" [disabled]="!deleteStatus" mat-raised-button class="warm"><i class="material-icons">delete</i>DELETE</button>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div> -->
+
+                <div class="example-container">
+                    <div class="example-header">
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                        </mat-form-field>
+                    </div>
+
+                    <mat-table #table [dataSource]="dataSource" class="max-table-height scrollable">
+
+                        <!-- Role Column -->
+                        <ng-container matColumnDef="roleName">
+                            <mat-header-cell *matHeaderCellDef> Role Name </mat-header-cell>
+                            <mat-cell *matCellDef="let role"> {{role.roleName}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Action Column -->
+                        <ng-container matColumnDef="action">
+                            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                            <mat-cell *matCellDef="let role">
+                                <span>
+                                        <button mat-raised-button color="primary" [disabled]="!updateStatus" (click)="onEdit('role', role.id, role.roleName, null , null , role.departmentId)">
+                                            <i class="material-icons">mode_edit</i>EDIT</button>
+                                    </span>
+                                <span>
+                                        <button (click)="onDelete('role', role.id, role.roleName)" [disabled]="!deleteStatus" mat-raised-button class="warm">
+                                            <i class="material-icons">delete</i>DELETE</button>
+                                    </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+
+                    <div class="" *ngIf="(dataSource.data.length == 0 || dataSource.filteredData.length == 0) && !isSpinner">
+                        <div class="snipet download-btn">
+                            <button (click)="refreshList()" mat-raised-button>
+                                    <i class="material-icons">refresh</i> No Data Found
+                                </button>
+                        </div>
+                    </div>
+                    <spinner [visible]='isSpinner'></spinner>
+
+                    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+                    </mat-paginator>
+                </div>
+
+            </div>
+        </mat-card>
+
+
+
+    </div>
+</div>
+<!-- </section> -->

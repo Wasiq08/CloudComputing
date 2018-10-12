@@ -1,0 +1,79 @@
+<!-- <secure-header *ngIf="isLogin"></secure-header> -->
+
+<!-- <section class="content-block"> -->
+    <div class="row align-item-center">
+        <div class="col-lg-12 col-md-12 col-xs-12 tr-campaign">
+
+            <mat-card class="two-row-card">
+                <div class="tr-sec-box">
+
+                    <!-- <div class="row align-item-center">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                            <mat-card-title>Department</mat-card-title>
+                        </div>
+                    </div> -->
+
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="example-header">
+                                <mat-form-field>
+                                    <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 download-btn snipet accord-btn-con">
+                            <button (click)="addField('department')" mat-raised-button color="primary" [disabled]="!addStatus"> Add New Department
+                                <i class="material-icons">add</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="example-container">
+                        <mat-table #table [dataSource]="dataSource" class="max-table-height scrollable">
+
+                            <!-- Department Name Column -->
+                            <ng-container matColumnDef="departmentName">
+                                <mat-header-cell *matHeaderCellDef> Department Name </mat-header-cell>
+                                <mat-cell *matCellDef="let department"> {{department.departmentName}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Action Column -->
+                            <ng-container matColumnDef="action">
+                                <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                                <mat-cell *matCellDef="let department">
+                                    <span>
+                                        <button mat-raised-button color="primary" [disabled]="!updateStatus" (click)="onEdit('department', department.id, department.departmentName)">
+                                            <i class="material-icons">mode_edit</i>EDIT</button>
+                                    </span>
+                                    <span>
+                                        <button (click)="onDelete('department', department.id, department.departmentName)" [disabled]="!deleteStatus" mat-raised-button
+                                            class="warm">
+                                            <i class="material-icons">delete</i>DELETE</button>
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+
+                        <div class="" *ngIf="(dataSource.data.length == 0 || dataSource.filteredData.length == 0) && !isSpinner">
+                            <div class="snipet download-btn">
+                                <button (click)="refreshList()" mat-raised-button>
+                                    <i class="material-icons">refresh</i> No Data Found
+                                </button>
+                            </div>
+                        </div>
+                        <spinner [visible]='isSpinner'></spinner>
+
+                        <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+                        </mat-paginator>
+                    </div>
+
+                </div>
+            </mat-card>
+
+
+
+        </div>
+    </div>
+<!-- </section> -->

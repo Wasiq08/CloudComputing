@@ -1,0 +1,154 @@
+/* Added by salman for Upload */
+.well.my-drop-zone {
+    background-color: #f5f5f5;
+    text-align: center;
+    height: 160px;
+    font-size: 15px;
+    color: #999;
+    position: relative;
+}
+
+.my-dropbox {
+    position: absolute;
+    width: 180px;
+    height: 92px;
+    top: 50%;
+    left: 50%;
+    margin-left: -90px;
+    margin-top: -46px;
+    text-align: center;
+}
+.my-dropbox .mat-icon {
+    display: block;
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    margin: auto auto 10px;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.media-item:hover:after {
+    content: '';
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+.media-item {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    margin: 10px 10px 0 0 !important;
+}
+.media-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #333;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.media-box img.media-object {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.media-item .mat-icon {
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    margin: -15px 0 0 -15px;
+    visibility: hidden;
+    cursor: pointer;
+}
+.media-item:hover .mat-icon {
+    visibility: visible;
+}
+
+.media-box.pdf {
+    background-color: #A80100;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 70px;
+}
+
+.media-box.ppt {
+    background-color:#E83D06;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 70px;
+}
+
+.media-box.xls {
+    background-color: #006E47;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 70px;
+}
+.media-box.doc {
+    background-color: #13568E;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 70px;
+}
+
+.media-box.video {
+    background-color: #6BA800;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 70px;
+}
+
+.media-box.audio {
+    background-color: #3F6881;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 70px;
+}
+
+.cx-progress {
+    height: 5px;
+    background-color: #f5f5f5;
+}
+.cx-progress-bar {
+    height: 5px;
+    background-color: #a4d06f;
+}

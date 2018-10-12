@@ -1,0 +1,140 @@
+<secure-header *ngIf="isLogin"></secure-header>
+
+<section class="content-block">
+
+    <mat-accordion class="example-headers-align" multi="true">
+
+        <!-- manage caseType -->
+        <mat-expansion-panel [expanded]="step[0].selected" hideToggle="true">
+
+            <mat-expansion-panel-header (click)="step[0].selected = !step[0].selected">
+                <mat-panel-title>
+                    <strong>Manage Case Type</strong>
+                    <mat-icon>{{ step[0].selected ? 'remove_circle' : 'add_circle'}}</mat-icon>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                            Type the country name
+                            <mat-icon>map</mat-icon>
+                        </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+
+            <caseType-list></caseType-list>
+
+
+            <!-- <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                        <button mat-button color="primary" (click)="nextStep()">Next</button>
+                    </mat-action-row> -->
+        </mat-expansion-panel>
+
+        <!-- manage caseNature -->
+        <mat-expansion-panel [expanded]="step[1].selected" hideToggle="true">
+            <mat-expansion-panel-header (click)="step[1].selected = !step[1].selected">
+                <mat-panel-title>
+                    <strong>Manage Case Nature</strong>
+                    <mat-icon>{{ step[1].selected ? 'remove_circle' : 'add_circle'}}</mat-icon>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                            Inform the date you wish to travel
+                            <mat-icon>date_range</mat-icon>
+                        </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <caseNature-list></caseNature-list>
+
+            <!-- <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                        <button mat-button color="primary" (click)="nextStep()">End</button>
+                    </mat-action-row> -->
+        </mat-expansion-panel>
+
+        <!-- manage caseTerritory -->
+        <mat-expansion-panel [expanded]="step[2].selected" hideToggle="true">
+            <mat-expansion-panel-header (click)="step[2].selected = !step[2].selected">
+                <mat-panel-title>
+                    <strong>Manage Case Territory</strong>
+                    <mat-icon>{{ step[2].selected ? 'remove_circle' : 'add_circle'}}</mat-icon>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                            <mat-icon>add_circle</mat-icon>
+                            <mat-icon>remove_circle</mat-icon>
+                        </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <caseTerritory-list></caseTerritory-list>
+
+            <!-- <mat-action-row>
+                <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row> -->
+        </mat-expansion-panel>
+
+
+        <!-- manage caseClassification -->
+        <mat-expansion-panel [expanded]="step[3].selected" hideToggle="true">
+            <mat-expansion-panel-header (click)="step[3].selected = !step[3].selected">
+                <mat-panel-title>
+                    <strong>Manage Case Classification</strong>
+                    <mat-icon>{{ step[3].selected ? 'remove_circle' : 'add_circle'}}</mat-icon>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                                <mat-icon>add_circle</mat-icon>
+                                <mat-icon>remove_circle</mat-icon>
+                            </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <caseClassification-list></caseClassification-list>
+
+            <!-- <mat-action-row>
+                    <button mat-button color="primary" (click)="nextStep()">Next</button>
+                </mat-action-row> -->
+        </mat-expansion-panel>
+
+
+        <!-- manage caseDocument -->
+        <mat-expansion-panel [expanded]="step[4].selected" hideToggle="true">
+            <mat-expansion-panel-header (click)="step[4].selected = !step[4].selected">
+                <mat-panel-title>
+                    <strong>Manage Case Document</strong>
+                    <mat-icon>{{ step[4].selected ? 'remove_circle' : 'add_circle'}}</mat-icon>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                            Inform the date you wish to travel
+                            <mat-icon>date_range</mat-icon>
+                        </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <caseDocument-list></caseDocument-list>
+
+            <!-- <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                        <button mat-button color="primary" (click)="nextStep()">End</button>
+                    </mat-action-row> -->
+        </mat-expansion-panel>
+
+        <!-- manage caseDocumentNature -->
+        <mat-expansion-panel [expanded]="step[5].selected" hideToggle="true">
+            <mat-expansion-panel-header (click)="step[5].selected = !step[5].selected">
+                <mat-panel-title>
+                    <strong>Manage Case Document Nature</strong>
+                    <mat-icon>{{ step[5].selected ? 'remove_circle' : 'add_circle'}}</mat-icon>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                            Inform the date you wish to travel
+                            <mat-icon>date_range</mat-icon>
+                        </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <caseDocumentNature-list></caseDocumentNature-list>
+
+            <!-- <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+                        <button mat-button color="primary" (click)="nextStep()">End</button>
+                    </mat-action-row> -->
+        </mat-expansion-panel>
+
+
+
+    </mat-accordion>
+
+</section>

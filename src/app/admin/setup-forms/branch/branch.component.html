@@ -1,0 +1,134 @@
+<!-- <secure-header *ngIf="isLogin"></secure-header> -->
+
+<!-- <section class="content-block"> -->
+<div class="row align-item-center">
+    <div class="col-lg-12 col-md-12 col-xs-12 tr-campaign">
+
+        <mat-card class="two-row-card">
+            <div class="tr-sec-box">
+
+                <!-- <div class="row align-item-center">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                            <mat-card-title>Branch</mat-card-title>
+                        </div>
+                    </div> -->
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="example-header">
+                            <mat-form-field class="full-width">
+                                <!-- <mat-select [(ngModel)]="newCountryId" placeholder="Select Country" (focusout)="onCountryFocusOut()"> -->
+                                <mat-select [(ngModel)]="newCountryId" placeholder="Select Country" (change)="onCountryFocusOut()">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let country of countries" [value]="country.id ">
+                                        {{ country.countryName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="full-width">
+                                <!-- <mat-select [(ngModel)]="newRegionId" placeholder="Select Region" (focusout)="onRegionFocusOut()"> -->
+                                <mat-select [(ngModel)]="newRegionId" placeholder="Select Region" (change)="onRegionFocusOut()">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let region of regions" [value]="region.id ">
+                                        {{ region.regionName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="full-width">
+                                <!-- <mat-select [(ngModel)]="newCityId" placeholder="Select City" (focusout)="onCityFocusOut()"> -->
+                                <mat-select [(ngModel)]="newCityId" placeholder="Select City" (change)="onCityFocusOut()">
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let city of cities" [value]="city.id ">
+                                        {{ city.cityName }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 snipet download-btn">
+                        <button (click)="addField('branch')" mat-raised-button color="primary" [disabled]="!addStatus"> Add New Branch
+                                <i class="material-icons">add</i>
+                            </button>
+                    </div>
+                </div>
+                <!-- <div class="table-container">
+                        <table class="table table-responsive soc-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="10">Branch Name</th>
+                                    <th class="action">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let branch of branchs">
+                                    <td colspan="10">{{branch.branchName}}</td>
+                                    <td>
+                                        <span>
+                                            <button mat-raised-button color="primary" [disabled]="!updateStatus" (click)="onEdit('branch', branch.id, branch.branchName, null , null , branch.cityId)"><i class="material-icons">mode_edit</i>EDIT</button>
+                                        </span>
+                                        <span>
+                                            <button (click)="onDelete('branch', branch.id, branch.branchName)" [disabled]="!deleteStatus" mat-raised-button class="warm"><i class="material-icons">delete</i>DELETE</button>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div> -->
+
+                <div class="example-container">
+                    <div class="example-header">
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                        </mat-form-field>
+                    </div>
+
+                    <mat-table #table [dataSource]="dataSource" class="max-table-height scrollable">
+
+                        <!-- Branch Name Column -->
+                        <ng-container matColumnDef="branchName">
+                            <mat-header-cell *matHeaderCellDef> Branch Name </mat-header-cell>
+                            <mat-cell *matCellDef="let branch"> {{branch.branchName}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Action Column -->
+                        <ng-container matColumnDef="action">
+                            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                            <mat-cell *matCellDef="let branch">
+                                <span>
+                                        <button mat-raised-button color="primary" [disabled]="!updateStatus" (click)="onEdit('branch', branch.id, branch.branchName, null , null , branch.cityId)">
+                                            <i class="material-icons">mode_edit</i>EDIT</button>
+                                    </span>
+                                <span>
+                                        <button (click)="onDelete('branch', branch.id, branch.branchName)" [disabled]="!deleteStatus" mat-raised-button class="warm">
+                                            <i class="material-icons">delete</i>DELETE</button>
+                                    </span>
+                            </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+
+                    <div class="" *ngIf="(dataSource.data.length == 0 || dataSource.filteredData.length == 0) && !isSpinner">
+                        <div class="snipet download-btn">
+                            <button (click)="refreshList()" mat-raised-button>
+                                    <i class="material-icons">refresh</i> No Data Found
+                                </button>
+                        </div>
+                    </div>
+                    <spinner [visible]='isSpinner'></spinner>
+
+                    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+                    </mat-paginator>
+                </div>
+
+            </div>
+        </mat-card>
+
+
+
+    </div>
+</div>
+<!-- </section> -->

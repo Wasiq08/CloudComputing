@@ -1,0 +1,10 @@
+
+.upload-con span:nth-child(2) input{width:100%;}
+.upload-con{width: 100%;
+    float: left;
+    padding-top: 3.2px;
+    padding-bottom: 3.2px;
+    border-bottom: 1px solid #949594}
+    .upload-con span input {
+        width: 100%;
+    }
